@@ -2,740 +2,487 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>PureWave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Year-round tennis leagues, tournaments, and community events connecting players and families across the Bay Area.">
+  <meta name="theme-color" content="#121212">
+  <title>PureWave | Bay Area Tennis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #fbfbfd;
-      --text: #1d1d1f;
-      --text-secondary: #6e6e73;
-      --link: #0066cc;
-      --border: rgba(0,0,0,.08);
-    }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-      overflow-x: hidden;
-      max-width: 100%;
+      margin: 0;
+      background: #121212;
+      color: #f5f5f5;
+      font-family: Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    body.lang-zh .font-zh { font-family: "Noto Sans SC", -apple-system, sans-serif; }
-
+    :root {
+      --bg: #121212;
+      --surface: #1c1c1c;
+      --surface-raised: #252525;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --accent: #e5f04d;
+      --green: #1d7c53;
+      --blue: #176bbf;
+      --border: rgba(255, 255, 255, .12);
+      --content-width: 1160px;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; }
     .nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 44px;
-      padding: 0 22px;
+      inset: 0 0 auto;
+      z-index: 10;
+      height: 72px;
+      padding: 0 max(24px, calc((100vw - var(--content-width)) / 2));
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(251,251,253,.8);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      z-index: 100;
       border-bottom: 1px solid var(--border);
+      background: rgba(18, 18, 18, .92);
+      backdrop-filter: blur(16px);
     }
-    .nav-home { margin-left: -12px; }
-    .nav-logo { height: 240px; width: auto; object-fit: contain; }
-    .page-nav {
-      display: flex;
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand img { display: block; width: 138px; height: 42px; object-fit: cover; object-position: center; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a, .button {
+      min-height: 42px;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-left: 24px;
-    }
-    .page-nav a {
-      padding: 6px 12px;
+      justify-content: center;
+      padding: 9px 17px;
+      border: 0;
+      border-radius: 999px;
       font-size: 14px;
-      color: var(--text-secondary);
+      font-weight: 700;
       text-decoration: none;
-      border-radius: 8px;
-      transition: color .15s, background .15s;
+      transition: color .2s, background .2s, transform .2s;
     }
-    .page-nav a:hover { color: var(--text); background: rgba(0,0,0,.06); }
-    .page-nav a.active { color: var(--text); font-weight: 600; background: rgba(0,0,0,.08); }
-    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); background: var(--surface-raised); transform: scale(1.04); }
+    .button:hover { transform: scale(1.04); }
+    .button:active, .nav-links a:active { transform: scale(.98); }
+    .button-primary { background: var(--accent); color: #121212; }
+    .button-primary:hover { background: #eff77b; }
+    .button-ghost { border: 1px solid var(--border); color: var(--text); }
+    .button-ghost:hover { background: var(--surface-raised); }
     .menu-toggle {
       display: none;
-      width: 32px;
-      height: 32px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-      padding: 0;
-    }
-    .menu-toggle span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--text);
-      transition: all 0.3s;
-    }
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    .mobile-menu {
-      position: fixed;
-      top: 44px;
-      right: -100%;
-      width: 200px;
-      height: calc(100vh - 44px);
-      background: rgba(251,251,253,.95);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      z-index: 99;
-      transition: right 0.3s ease;
-      padding: 24px;
-      box-shadow: -2px 0 8px rgba(0,0,0,.1);
-    }
-    .mobile-menu.open {
-      right: 0;
-    }
-    .mobile-menu a {
-      display: block;
-      padding: 16px 0;
-      font-size: 17px;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      transition: color .15s;
-    }
-    .mobile-menu a:last-child {
-      border-bottom: none;
-    }
-    .mobile-menu a:hover,
-    .mobile-menu a.active {
-      color: var(--link);
-    }
-    .lang-switch { display: flex; align-items: center; }
-    .lang-switch-btn {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,.06);
+      background: transparent;
       color: var(--text);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      transition: background .15s, transform .15s;
-      border: none;
       cursor: pointer;
     }
-    .lang-switch-btn:hover {
-      background: rgba(0,0,0,.1);
-      transform: scale(1.05);
-    }
-    .lang-switch-btn:active {
-      transform: scale(0.95);
-    }
-
-    body.lang-en .page-zh { display: none !important; }
-    body.lang-zh .page-en { display: none !important; }
-    body.view-member .page-en,
-    body.view-member .page-zh { display: none !important; }
-    body.view-member .member-page { display: block; }
-    body.view-home .member-page { display: none !important; }
-    body.view-member.lang-en .member-zh { display: none !important; }
-    body.view-member.lang-zh .member-en { display: none !important; }
-
-    .page-en, .page-zh {
-      padding-top: 44px;
-      padding-bottom: 80px;
-    }
-
-    /* First page: logo + title centered, court as background */
+    .mobile-menu { display: none; }
     .hero {
-      min-height: calc(100vh - 44px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      min-height: 680px;
+      padding: 144px 24px 104px;
+      display: grid;
+      place-items: center;
       text-align: center;
-      padding: 48px 24px;
-      background: url('resources/images/court.png?v=2') center / cover no-repeat;
+      isolation: isolate;
       position: relative;
+      overflow: hidden;
+      background: #171a18 url("resources/images/court.png") center 55% / cover no-repeat;
     }
     .hero::before {
-      content: '';
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.08);
-      z-index: 0;
+      z-index: -1;
+      content: "";
+      background: rgba(12, 14, 13, .76);
     }
-    .hero-logos-container {
-      position: absolute;
-      top: 34%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .hero-logo-left,
-    .hero-logo-bg {
-      width: 300px;
-      height: 300px;
-      opacity: 0.8;
-    }
-    .hero-logo-left {
-      margin-top: 10px;
-    }
-    .hero-logo-bg {
-      margin-left: -150px;
-    }
-    .hero-logo-left img,
-    .hero-logo-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .hero h1 {
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95), 0 1px 3px rgba(0, 0, 0, 0.15);
-    }
-    .hero h1 {
-      font-size: clamp(22px, 5.5vw, 44px);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      line-height: 1.25;
-      max-width: 90vw;
-      word-wrap: break-word;
-    }
-
-    /* Poetry: all sentences together, centered */
-    .poem-section {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 48px 24px 64px;
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .poem-section .poem {
-      font-size: clamp(16px, 2.5vw, 20px);
-      line-height: 1.85;
-      color: var(--text);
-      letter-spacing: 0.01em;
-      text-wrap: pretty;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-    .poem-section .poem p {
-      margin: 0 0 1.25em 0;
-      text-wrap: pretty;
-      max-width: 100%;
-    }
-    .page-zh .poem-section .poem p {
-      word-break: keep-all; /* 中文尽量不把词拆开 */
-    }
-    .poem-section .poem p:last-child {
-      margin-bottom: 0;
-    }
-    .footer {
-      padding: 6px 10px;
-      text-align: center;
+    .hero-content { max-width: 820px; }
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--accent);
       font-size: 12px;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border);
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
     }
-    .footer a { color: var(--link); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    .footer-logos {
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 {
+      max-width: 780px;
+      margin: 0 auto 20px;
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 900;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+    .hero-copy { max-width: 650px; margin: 0 auto 30px; color: #dedede; font-size: clamp(17px, 2.2vw, 20px); }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .hero-note { margin: 48px 0 0; color: #d0d0d0; font-size: 13px; }
+    .hero-note strong { color: var(--text); }
+    .section { padding: 104px 0; }
+    .section-header { max-width: 720px; margin-bottom: 42px; }
+    .section-kicker { margin: 0 0 12px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .section h2 { margin-bottom: 16px; font-size: clamp(32px, 5vw, 48px); line-height: 1.08; letter-spacing: -.045em; }
+    .section-intro { margin-bottom: 0; color: var(--muted); font-size: 18px; }
+    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
+    .about .section-header { margin-bottom: 0; }
+    .about-copy { padding-top: 24px; color: #d0d0d0; font-size: 18px; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-emphasis { color: var(--text); font-weight: 700; }
+    .events-section { background: #181818; }
+    .event-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .event-card {
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      transition: background .3s, transform .3s;
+    }
+    .event-card:hover { background: var(--surface-raised); transform: translateY(-3px); }
+    .event-index { display: inline-block; margin-bottom: 26px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+    .event-card h3 { margin-bottom: 9px; font-size: 19px; line-height: 1.25; }
+    .event-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .event-note { margin: 28px 0 0; padding: 18px 22px; border-left: 3px solid var(--green); border-radius: 2px 8px 8px 2px; background: var(--surface); color: #d0d0d0; font-size: 14px; }
+    .community-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+    .community-panel { padding: 36px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+    .community-panel h3 { margin-bottom: 20px; font-size: 21px; }
+    .audience-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .audience-list span { padding: 9px 14px; border: 1px solid var(--border); border-radius: 999px; color: #dedede; font-size: 14px; }
+    .highlights-panel { background: var(--blue); border-color: transparent; }
+    .highlights-panel p { margin-bottom: 0; color: #fff; }
+    .highlights-panel .highlight-label { margin-bottom: 14px; color: #d6e9fa; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .partners-section { background: #181818; }
+    .partner-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 72px; padding: 0; list-style: none; }
+    .partner-list li { padding: 12px 20px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: #ececec; font-size: 15px; font-weight: 700; }
+    .partnership-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .partnership-item { padding: 21px; border-top: 2px solid var(--green); background: var(--surface); }
+    .partnership-item h3 { margin-bottom: 7px; font-size: 16px; }
+    .partnership-item p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .partner-note { margin: 28px 0 0; color: var(--muted); font-size: 14px; }
+    .join-section { padding: 88px 0; }
+    .join-card {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 48px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #121212;
     }
-    .footer-logo {
-      width: 280px;
-      height: 280px;
-      opacity: 1;
+    .join-card .section-kicker { color: #3e4800; }
+    .join-card h2 { margin-bottom: 12px; font-size: clamp(32px, 5vw, 46px); line-height: 1.08; letter-spacing: -.045em; }
+    .join-card p { max-width: 610px; margin-bottom: 0; color: #303505; }
+    .join-actions { display: flex; flex: 0 0 auto; flex-direction: column; gap: 10px; }
+    .join-actions .button-primary { background: #121212; color: var(--accent); }
+    .join-actions .button-primary:hover { background: #2a2a2a; }
+    .join-actions .button-ghost { border-color: rgba(18,18,18,.3); color: #121212; }
+    .join-actions .button-ghost:hover { background: rgba(18,18,18,.08); }
+    .social-list { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 28px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+    .social-list strong { color: var(--text); }
+    .social-list a { color: var(--text); text-decoration-color: #747474; text-underline-offset: 3px; }
+    .footer { padding: 28px 0 36px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer p { margin: 0; }
+    .footer-brand { color: var(--text); font-weight: 700; }
+    @media (max-width: 800px) {
+      .nav { height: 64px; padding: 0 24px; }
+      .brand img { width: 124px; height: 38px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { padding: 8px 11px; font-size: 13px; }
+      .nav-links .button { margin-left: 4px; }
+      .hero { min-height: 620px; }
+      .about { grid-template-columns: 1fr; gap: 18px; }
+      .about-copy { padding-top: 0; }
+      .event-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .partnership-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-    .footer-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* Member page */
-    .member-page { padding-top: 44px; padding-bottom: 80px; display: none; }
-    .member-page .member-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 24px 48px;
-    }
-    .member-page .page-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    .member-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 60px 40px;
-      margin-bottom: 80px;
-    }
-    .member-card {
-      text-align: center;
-    }
-    .member-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      margin: 0 auto 24px;
-      display: block;
-      max-width: 100%;
-    }
-    .member-name {
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .member-name a {
-      color: var(--link);
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .member-name a:hover {
-      color: var(--link);
-      text-decoration: underline;
-      opacity: 0.8;
-    }
-    .member-byline {
-      font-size: 17px;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-    .member-card .statement {
-      display: none;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text);
-    }
-    .member-card .statement.active {
-      display: block;
-    }
-    .member-card .statement p {
-      margin: 0 0 1em 0;
-    }
-    .member-card .statement p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 手机端适配：避免照片被压扁、文字显示不全 */
-    @media (max-width: 480px) {
-      .nav { padding: 0 8px; }
-      .nav-home { margin-left: -20px; }
-      .nav-logo { height: 200px; }
-      .page-nav { display: none; }
-      .menu-toggle { display: flex; }
-      .lang-switch-btn { width: 32px; height: 32px; font-size: 11px; }
-      .hero { padding: 32px 16px; }
-      .hero h1 { max-width: 100%; }
-      .hero-logos-container {
-        top: 39%;
-        gap: 0;
+    @media (max-width: 600px) {
+      html { scroll-padding-top: 72px; }
+      .wrap { width: min(100% - 36px, var(--content-width)); }
+      .nav { height: 60px; padding: 0 18px; }
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .menu-toggle svg { width: 20px; height: 20px; }
+      .mobile-menu {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        z-index: 9;
+        display: none;
+        width: min(300px, 86vw);
+        padding: 14px 20px 20px;
+        flex-direction: column;
+        border: 1px solid var(--border);
+        border-top: 0;
+        border-radius: 0 0 0 10px;
+        background: rgba(28, 28, 28, .98);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, .35);
       }
-      .hero-logo-left,
-      .hero-logo-bg {
-        width: 150px;
-        height: 150px;
-      }
-      .hero-logo-bg {
-        margin-left: -70px;
-      }
-      .poem-section { padding: 32px 16px 48px; }
-      .poem-section .poem { font-size: 16px; }
-      .member-page .member-wrap { padding: 40px 16px 40px; }
-      .member-page .page-title { margin-bottom: 40px; font-size: 28px; }
-      .member-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-      .member-photo {
-        width: 160px;
-        height: 160px;
-      }
-      .footer-logos {
-        gap: 10px;
-        flex-wrap: nowrap;
-      }
-      .footer-logo {
-        width: 140px;
-        height: 140px;
-        flex: 0 0 auto;
-      }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { padding: 13px 4px; border-bottom: 1px solid var(--border); color: var(--text); font-weight: 600; text-decoration: none; }
+      .mobile-menu a:last-child { margin-top: 12px; border: 0; border-radius: 999px; background: var(--accent); color: #121212; text-align: center; }
+      .hero { min-height: 600px; padding: 120px 18px 76px; }
+      .hero h1 { font-size: clamp(46px, 14vw, 68px); }
+      .hero-copy { font-size: 17px; }
+      .hero-note { margin-top: 36px; }
+      .section { padding: 76px 0; }
+      .section-header { margin-bottom: 30px; }
+      .section-intro { font-size: 16px; }
+      .about-copy { font-size: 16px; }
+      .event-grid, .community-layout, .partnership-grid { grid-template-columns: 1fr; }
+      .event-card { min-height: 0; padding: 22px; }
+      .event-index { margin-bottom: 18px; }
+      .community-panel { padding: 26px; }
+      .partner-list { margin-bottom: 48px; }
+      .join-section { padding: 60px 0; }
+      .join-card { padding: 30px 24px; flex-direction: column; align-items: flex-start; }
+      .join-actions { width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
-<body class="lang-en">
-  <nav class="nav" aria-label="Main">
-    <a href="#" class="nav-home" aria-label="PureWave home">
-      <img src="resources/images/logo/pw_white.svg" alt="PureWave" class="nav-logo" />
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#top" aria-label="PureWave home">
+      <img src="resources/images/logo/pw_white.svg" alt="PureWave">
     </a>
-    <div class="page-nav">
-      <a href="#" data-page="home" class="active" id="nav-home">Home</a>
-      <a href="#" data-page="member" id="nav-member">Member</a>
+    <div class="nav-links">
+      <a href="#events">Events</a>
+      <a href="#community">Community</a>
+      <a href="#partners">Partners</a>
+      <a class="button button-primary" href="#join">Get involved</a>
     </div>
-    <div class="nav-right">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="lang-switch">
-        <button class="lang-switch-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
-      </div>
-    </div>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#" data-page="home" id="mobile-nav-home">Home</a>
-    <a href="#" data-page="member" id="mobile-nav-member">Member</a>
+    <a href="#events">Events</a>
+    <a href="#community">Community</a>
+    <a href="#partners">Partners</a>
+    <a href="#join">Get involved</a>
   </div>
 
-  <!-- ========== ENGLISH PAGE ========== -->
-  <main id="page-en" class="page-en">
+  <main id="top">
     <header class="hero">
-      <div class="hero-logos-container">
-        <div class="hero-logo-left">
-          <img src="resources/images/logo/w_white.svg" alt="" />
+      <div class="hero-content">
+        <p class="eyebrow">Bay Area Tennis · Since 2019</p>
+        <h1>Swing the Pure Wave Within</h1>
+        <p class="hero-copy">Year-round leagues, tournaments, and community events bringing players, families, alumni, and professionals together across the Bay Area.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#events">Explore events <span aria-hidden="true">&nbsp;↘</span></a>
+          <a class="button button-ghost" href="#join">Join the community</a>
         </div>
-        <div class="hero-logo-bg">
-          <img src="resources/images/logo/pw_white.svg" alt="" />
-        </div>
+        <p class="hero-note"><strong>Singles · Doubles · Teams · Families</strong><br>Rooted in the Bay Area, connected across the Pacific Coast.</p>
       </div>
-      <h1>Swing the pure wave within.</h1>
     </header>
-    <section class="poem-section" aria-label="Poem">
-      <div class="poem">
-        <p>Dear teammates of Pearl Wave, Blaze Wave, and Blizzard Wave,</p>
-        <p>This letter is written for you.</p>
-        <p>You come from three different teams.</p>
-        <p>But I'm not sure if you've noticed a small detail lately — no matter which team you're on, team names ending with "Wave" seem to be appearing more and more around the Bay Area.</p>
-        <p>This is not a coincidence.</p>
-        <p>These names were not centrally planned or assigned, but emerged naturally as we trained, grew, and spent time together, as more people stepped in and contributed their own ideas. Each team took shape on its own.</p>
-        <p>Over time, we began to realize that this was no longer just three separate teams, but a group of people meeting again and again in the same rhythm, showing up with real commitment.</p>
-        <p>Those moments of sweating together, laughing together, and pushing through together started to feel like moments worth remembering.</p>
-        <p>We call this shared space PureWave.</p>
+
+    <section class="section" id="about">
+      <div class="wrap about">
+        <div class="section-header">
+          <p class="section-kicker">A community in motion</p>
+          <h2>More than a match.</h2>
+        </div>
+        <div class="about-copy">
+          <p><span class="about-emphasis">Bay Area Tennis has brought players together since 2019</span> through singles and doubles leagues, team tournaments, family events, and regional competitions.</p>
+          <p>We connect players throughout the Bay Area and with tennis communities across Northern California, Southern California, and the Pacific Coast. Whether you come to compete, meet your next doubles partner, or bring the family, there is a place for you on court.</p>
+        </div>
       </div>
     </section>
-    <footer class="footer">
-      <div class="footer-logos">
-        <div class="footer-logo">
-          <img src="resources/images/logo/blaze_white.svg" alt="Blaze Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/blizzard_white.svg" alt="Blizzard Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/pearly_white.svg" alt="Pearly Wave" />
-        </div>
-      </div>
-      <p>PureWave · Silicon Valley</p>
-    </footer>
-  </main>
 
-  <!-- ========== CHINESE PAGE ========== -->
-  <main id="page-zh" class="page-zh font-zh">
-    <header class="hero">
-      <div class="hero-logos-container">
-        <div class="hero-logo-left">
-          <img src="resources/images/logo/w_white.svg" alt="" />
+    <section class="section events-section" id="events">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-kicker">Find your next match</p>
+          <h2>Play your way.</h2>
+          <p class="section-intro">Flexible formats and welcoming competition for every kind of tennis community.</p>
         </div>
-        <div class="hero-logo-bg">
-          <img src="resources/images/logo/pw_white.svg" alt="" />
+        <div class="event-grid">
+          <article class="event-card">
+            <span class="event-index">01 / SINGLES</span>
+            <h3>BAT Singles Tournament</h3>
+            <p>Flexible matches across the Bay Area, with adult, women’s, junior, and different UTR-level divisions.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">02 / DOUBLES</span>
+            <h3>BAT Doubles League</h3>
+            <p>A season-long doubles competition with flexible scheduling.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">03 / TEAM LEAGUE</span>
+            <h3>Summer UTR Team League</h3>
+            <p>Weekly team competition on the UTR Team League platform.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">04 / ALUMNI</span>
+            <h3>Zijing Cup Alumni Team Championship</h3>
+            <p>Held since 2016, with Gold and Silver divisions in men’s, women’s, and mixed doubles.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">05 / FAMILY</span>
+            <h3>Fotile Cup Family Championship</h3>
+            <p>Couples, parent-child teams, siblings, and multigenerational families meet on court.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">06 / COMMUNITY</span>
+            <h3>Silicon Valley Technology Elite Tournament</h3>
+            <p>A gathering for technology professionals, founders, executives, professors, and alumni teams.</p>
+          </article>
+          <article class="event-card">
+            <span class="event-index">07 / REGIONAL</span>
+            <h3>More ways to compete</h3>
+            <p>Regional community tournaments, Pacific Coast invitationals, Northern–Southern California exchanges, mixed doubles, and Junior Team Tennis.</p>
+          </article>
         </div>
-      </div>
-      <h1>挥洒纯粹 燃动内心</h1>
-    </header>
-    <section class="poem-section" aria-label="诗">
-      <div class="poem">
-        <p>珍珠浪、烈焰浪、暴风浪的队友们：</p>
-        <p>这封信，是写给你们的。</p>
-        <p>你们来自三支不同的队伍。</p>
-        <p>但不知道你最近有没有注意到一件小事 — 不管你在哪支队，以「Wave」结尾的队名，在湾区好像变多了起来。</p>
-        <p>这并不是巧合。</p>
-        <p>这些名字，并不是被统一出来的，而是在我们一起训练、成长、彼此陪伴的过程中，随着更多人主动参与进来、贡献各自的灵感，一支一支自然形成的。</p>
-        <p>慢慢地，我们发现，这已经不只是三支独立的队伍，而是一群在同一个节奏里反复相遇、认真投入的人。</p>
-        <p>那些一起流汗、笑过、咬牙坚持过的瞬间，也开始变得值得被记住。</p>
-        <p>我们把这个共同的空间，叫做 PureWave。</p>
+        <p class="event-note">Event listings include dates, locations, divisions, eligibility, entry fees, registration deadlines, registration links, and results.</p>
       </div>
     </section>
-    <footer class="footer">
-      <div class="footer-logos">
-        <div class="footer-logo">
-          <img src="resources/images/logo/blaze_white.svg" alt="Blaze Wave" />
+
+    <section class="section" id="community">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-kicker">Our community</p>
+          <h2>All kinds of players. One shared court.</h2>
         </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/blizzard_white.svg" alt="Blizzard Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/pearly_white.svg" alt="Pearly Wave" />
+        <div class="community-layout">
+          <div class="community-panel">
+            <h3>There’s room for you here.</h3>
+            <div class="audience-list">
+              <span>Recreational &amp; competitive players</span>
+              <span>Families &amp; junior players</span>
+              <span>US &amp; Chinese university alumni</span>
+              <span>Technology &amp; industry professionals</span>
+              <span>Regional exchange teams</span>
+            </div>
+          </div>
+          <div class="community-panel highlights-panel">
+            <p class="highlight-label">Community highlights</p>
+            <h3>Every point has a story.</h3>
+            <p>Match photography, team stories, family moments, tournament results, and season recaps celebrate the people and memories behind every match.</p>
+          </div>
         </div>
       </div>
-      <p>PureWave · Silicon Valley</p>
-    </footer>
+    </section>
+
+    <section class="section partners-section" id="partners">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-kicker">Selected partners &amp; supporters</p>
+          <h2>Good people make a great game.</h2>
+          <p class="section-intro">Thank you to the brands and community partners who help bring Bay Area tennis together.</p>
+        </div>
+        <ul class="partner-list" aria-label="Selected partners and supporters">
+          <li>Wilson</li>
+          <li>SwingVision</li>
+          <li>Outopia</li>
+          <li>Nedao</li>
+          <li>Tong Sui</li>
+          <li>WeBox</li>
+          <li>Haachi</li>
+        </ul>
+
+        <div class="section-header">
+          <p class="section-kicker">Partner with us</p>
+          <h2>Meet your community on court.</h2>
+          <p class="section-intro">Connect with tennis communities through year-round leagues and weekend tournaments.</p>
+        </div>
+        <div class="partnership-grid">
+          <article class="partnership-item">
+            <h3>Brand exposure</h3>
+            <p>WeChat, community groups, RedNote, Instagram, and event communications.</p>
+          </article>
+          <article class="partnership-item">
+            <h3>On-site experiences</h3>
+            <p>Branded booths, product demonstrations, sampling, and participant activities.</p>
+          </article>
+          <article class="partnership-item">
+            <h3>Player benefits</h3>
+            <p>Gift bags, prizes, services, and digital offers for players and families.</p>
+          </article>
+          <article class="partnership-item">
+            <h3>Event sponsorship</h3>
+            <p>Naming opportunities, court signage, trophies, and award presentations.</p>
+          </article>
+          <article class="partnership-item">
+            <h3>Campaign tracking</h3>
+            <p>Dedicated links, QR codes, promotional codes, and available engagement or redemption data.</p>
+          </article>
+          <article class="partnership-item">
+            <h3>Flexible partnerships</h3>
+            <p>Single-event pilots or longer-term programs combining financial support with approved products or services.</p>
+          </article>
+        </div>
+        <p class="partner-note">Partnership packages are tailored to the event, audience, venue, and brand objectives.</p>
+      </div>
+    </section>
+
+    <section class="join-section" id="join">
+      <div class="wrap">
+        <div class="join-card">
+          <div>
+            <p class="section-kicker">Join our community</p>
+            <h2>Your next tennis story starts here.</h2>
+            <p>Follow along for events, community stories, and ways to get involved. For partnership inquiries, get in touch with our team.</p>
+          </div>
+          <div class="join-actions">
+            <a class="button button-primary" href="mailto:partnership@purewavesports.com">Partner with us</a>
+            <a class="button button-ghost" href="https://www.instagram.com/BayAreaTennis_PW/" target="_blank" rel="noreferrer">Follow on Instagram <span aria-hidden="true">&nbsp;↗</span></a>
+          </div>
+        </div>
+        <ul class="social-list">
+          <li><strong>WeChat Official Account</strong> Search “湾区网事”</li>
+          <li><strong>RedNote</strong> @BayAreaTennis_PW</li>
+          <li><strong>Instagram</strong> <a href="https://www.instagram.com/BayAreaTennis_PW/" target="_blank" rel="noreferrer">@BayAreaTennis_PW</a></li>
+          <li><strong>UTR Club</strong> #3156</li>
+          <li><strong>Partnerships</strong> <a href="mailto:partnership@purewavesports.com">partnership@purewavesports.com</a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <!-- ========== MEMBER PAGE (EN) ========== -->
-  <div id="member-en" class="member-page member-en">
-    <div class="member-wrap">
-      <h1 class="page-title">Members</h1>
-      <div class="member-grid">
-        <article class="member-card">
-          <img src="resources/images/members/eva.jpg" alt="Eva Wu" class="member-photo" width="200" height="200" />
-          <h2 class="member-name"><a href="#" data-member="eva">Eva Wu</a></h2>
-          <p class="member-byline">Founder</p>
-          <div class="statement" id="eva-statement">
-            <p>I'm Eva Wu, one of the initiators and co-builders of PureWave.</p>
-            <p>I grew up as an athlete, and later became a co-founder of an education technology company.</p>
-            <p>Whether in sports or in education, I've always been doing the same thing: building environments where people can stay engaged long-term, connect with one another, and grow together.</p>
-            <p>PureWave is not my idea alone. It has been shaped within the trainings, matches, and conversations you've already taken part in, gradually taking form over time.</p>
-            <p>Those seemingly small moments of joy and effort are in fact the truest expression of this community.</p>
-            <p>In PureWave, "Wave" is more than just a name. It represents rhythm and flow, and the way we move forward together through different stages.</p>
-            <p>The team you belong to may be Pearl Wave, Blaze Wave, or Blizzard Wave. No matter which Wave it is, you are already part of PureWave.</p>
-            <p>So I want to say this to you, officially: Welcome to PureWave's very first season.</p>
-            <p>This is not just a team, but a community that is actively taking shape. And you are part of what it looks like at the very beginning.</p>
-            <p>I'm really glad that this season, we get to be here together.</p>
-          </div>
-        </article>
-
-        <article class="member-card">
-          <img src="resources/images/members/zaizai.jpg" alt="Zaizai" class="member-photo" width="200" height="200" />
-          <h2 class="member-name"><a href="#" data-member="zaizai">Zaizai</a></h2>
-          <p class="member-byline">Member</p>
-          <div class="statement" id="zaizai-statement">
-            <p>Meow.</p>
-          </div>
-        </article>
-      </div>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand">PureWave · Bay Area Tennis</p>
+      <p>Year-round tennis. A community that moves together.</p>
     </div>
-    <footer class="footer">
-      <div class="footer-logos">
-        <div class="footer-logo">
-          <img src="resources/images/logo/blaze_white.svg" alt="Blaze Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/blizzard_white.svg" alt="Blizzard Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/pearly_white.svg" alt="Pearly Wave" />
-        </div>
-      </div>
-      <p>PureWave · Silicon Valley</p>
-    </footer>
-  </div>
-
-  <!-- ========== MEMBER PAGE (ZH) ========== -->
-  <div id="member-zh" class="member-page member-zh font-zh">
-    <div class="member-wrap">
-      <h1 class="page-title">成员们</h1>
-      <div class="member-grid">
-        <article class="member-card">
-          <img src="resources/images/members/eva.jpg" alt="Eva Wu" class="member-photo" width="200" height="200" />
-          <h2 class="member-name"><a href="#" data-member="eva-zh">Eva Wu</a></h2>
-          <p class="member-byline">创始人</p>
-          <div class="statement" id="eva-zh-statement">
-            <p>我是 Eva Wu，PureWave 的发起者与共建者之一。</p>
-            <p>我从小是运动员，也曾经是一位教育科技公司的联合创始人。</p>
-            <p>无论是在运动还是在教育中，我始终在做同一件事：搭建一个能让人长期投入、彼此连接、共同成长的环境。</p>
-            <p>PureWave 并不是我一个人的想法。它是在你们已经参与其中的训练、比赛和交流里，一点一点被孕育出来的。</p>
-            <p>那些看似零散的快乐瞬间和努力片段，正是这个 community 最真实的样子。</p>
-            <p>在 PureWave 里，Wave 不只是一个名字。它代表的是节奏、流动，以及在不同阶段，一起向前的方式。</p>
-            <p>你所在的队伍，可能是 Pearl Wave、Blaze Wave，或 Blizzard Wave。无论是哪一支 Wave，你们都已经是 PureWave 的一部分。</p>
-            <p>所以，也想正式和你说一句：欢迎你，成为 PureWave 第一个赛季的成员。</p>
-            <p>这不仅是一支队伍，而是一个正在形成中的 community。而你，正参与了它最初的样子。</p>
-            <p>很高兴能在这个赛季，和你一起出现在这里。</p>
-          </div>
-        </article>
-
-        <article class="member-card">
-          <img src="resources/images/members/zaizai.jpg" alt="Zaizai" class="member-photo" width="200" height="200" />
-          <h2 class="member-name"><a href="#" data-member="zaizai-zh">Zaizai</a></h2>
-          <p class="member-byline">成员</p>
-          <div class="statement" id="zaizai-zh-statement">
-            <p>喵。</p>
-          </div>
-        </article>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="footer-logos">
-        <div class="footer-logo">
-          <img src="resources/images/logo/blaze_white.svg" alt="Blaze Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/blizzard_white.svg" alt="Blizzard Wave" />
-        </div>
-        <div class="footer-logo">
-          <img src="resources/images/logo/pearly_white.svg" alt="Pearly Wave" />
-        </div>
-      </div>
-      <p>PureWave · Silicon Valley</p>
-    </footer>
-  </div>
+  </footer>
 
   <script>
-    (function() {
-      var STORAGE_KEY = 'purewave-lang';
-      var PAGE_KEY = 'purewave-page';
-      var langToggle = document.getElementById('lang-toggle');
-      var navHome = document.getElementById('nav-home');
-      var navMember = document.getElementById('nav-member');
-      var navHomeLink = document.querySelector('.nav-home');
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobileMenu = document.querySelector("#mobile-menu");
 
-      var menuToggle = document.getElementById('menu-toggle');
-      var mobileMenu = document.getElementById('mobile-menu');
-      var mobileNavHome = document.getElementById('mobile-nav-home');
-      var mobileNavMember = document.getElementById('mobile-nav-member');
+    function closeMenu() {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      mobileMenu.classList.remove("open");
+    }
 
-      function toggleMenu() {
-        if (menuToggle && mobileMenu) {
-          menuToggle.classList.toggle('active');
-          mobileMenu.classList.toggle('open');
-        }
-      }
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+      mobileMenu.classList.toggle("open", !isOpen);
+    });
 
-      function closeMenu() {
-        if (menuToggle && mobileMenu) {
-          menuToggle.classList.remove('active');
-          mobileMenu.classList.remove('open');
-        }
-      }
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeMenu();
+    });
 
-      function setLang(lang) {
-        document.body.classList.remove('lang-en', 'lang-zh');
-        document.body.classList.add('lang-' + lang);
-        document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
-        if (langToggle) {
-          langToggle.textContent = lang === 'zh' ? 'EN' : '中文';
-        }
-        navHome.textContent = lang === 'zh' ? '首页' : 'Home';
-        navMember.textContent = lang === 'zh' ? '成员' : 'Member';
-        if (mobileNavHome) mobileNavHome.textContent = lang === 'zh' ? '首页' : 'Home';
-        if (mobileNavMember) mobileNavMember.textContent = lang === 'zh' ? '成员' : 'Member';
-        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
-      }
-
-      function setPage(page) {
-        document.body.classList.remove('view-home', 'view-member');
-        document.body.classList.add('view-' + page);
-        navHome.classList.toggle('active', page === 'home');
-        navMember.classList.toggle('active', page === 'member');
-        if (mobileNavHome) mobileNavHome.classList.toggle('active', page === 'home');
-        if (mobileNavMember) mobileNavMember.classList.toggle('active', page === 'member');
-        closeMenu();
-        try { localStorage.setItem(PAGE_KEY, page); } catch (e) {}
-      }
-
-      var savedLang = '';
-      try { savedLang = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-      setLang((savedLang === 'zh' || savedLang === 'en') ? savedLang : 'en');
-
-      var savedPage = '';
-      try { savedPage = localStorage.getItem(PAGE_KEY); } catch (e) {}
-      setPage((savedPage === 'member' || savedPage === 'home') ? savedPage : 'home');
-
-      if (langToggle) {
-        langToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          var currentLang = document.body.classList.contains('lang-zh') ? 'zh' : 'en';
-          setLang(currentLang === 'zh' ? 'en' : 'zh');
-        });
-      }
-      navHome.addEventListener('click', function(e) { e.preventDefault(); setPage('home'); });
-      navMember.addEventListener('click', function(e) { e.preventDefault(); setPage('member'); });
-      if (navHomeLink) navHomeLink.addEventListener('click', function(e) { e.preventDefault(); setPage('home'); });
-      
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          toggleMenu();
-        });
-      }
-      if (mobileNavHome) {
-        mobileNavHome.addEventListener('click', function(e) {
-          e.preventDefault();
-          setPage('home');
-        });
-      }
-      if (mobileNavMember) {
-        mobileNavMember.addEventListener('click', function(e) {
-          e.preventDefault();
-          setPage('member');
-        });
-      }
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (mobileMenu && mobileMenu.classList.contains('open')) {
-          if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            closeMenu();
-          }
-        }
-      });
-
-      // Member name click handler
-      var memberLinks = document.querySelectorAll('.member-name a[data-member]');
-      memberLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          var memberId = this.getAttribute('data-member');
-          var statement = document.getElementById(memberId + '-statement');
-          if (statement) {
-            // Toggle active class
-            var isActive = statement.classList.contains('active');
-            // Close all statements first
-            document.querySelectorAll('.statement').forEach(function(s) {
-              s.classList.remove('active');
-            });
-            // Open clicked one if it wasn't active
-            if (!isActive) {
-              statement.classList.add('active');
-              // Scroll to statement smoothly
-              statement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-          }
-        });
-      });
-    })();
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
   </script>
 </body>
 </html>
