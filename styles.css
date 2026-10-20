@@ -306,15 +306,15 @@ button:focus-visible {
 /* Events */
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .event-card {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 24px;
+  padding: 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   background: var(--canvas);
@@ -327,13 +327,23 @@ button:focus-visible {
   border-color: #c8d5c2;
 }
 
+.events-load-more {
+  display: flex;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+.events-load-more[hidden] {
+  display: none;
+}
+
 .event-status {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  min-height: 28px;
-  margin-bottom: 16px;
-  padding: 0 12px;
+  min-height: 26px;
+  margin-bottom: 12px;
+  padding: 0 10px;
   border-radius: var(--radius-pill);
   background: var(--surface);
   color: var(--brand-green);
@@ -343,9 +353,9 @@ button:focus-visible {
 }
 
 .event-card h3 {
-  margin: 0 0 10px;
-  font-size: 24px;
-  line-height: 32px;
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
   font-weight: 700;
 }
 
@@ -358,7 +368,7 @@ button:focus-visible {
 }
 
 .event-card p {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   color: var(--muted);
   flex: 1;
 }
