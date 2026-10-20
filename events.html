@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bay Area Tennis events: singles, doubles, team leagues, alumni cups, and family championships. Register on UTR Club #3156.">
+  <meta name="theme-color" content="#1E4B0C">
+  <title>Events | Bay Area Tennis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="Bay Area Tennis home">
+      <img src="resources/images/logo/BayAreaTennis_Logo.svg" alt="Bay Area Tennis">
+    </a>
+    <div class="nav-links">
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="history.html">History</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="button button-primary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register Now</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="events.html" aria-current="page">Events</a>
+    <a href="history.html">History</a>
+    <a href="products.html">Products</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+    <a data-register href="https://app.utrsports.net/club/3156?tab=info">Register Now</a>
+  </div>
+
+  <main>
+    <header class="page-hero container">
+      <p class="section-kicker">Our events</p>
+      <h1 class="hero-title">Play your way</h1>
+      <p>Singles, doubles, team leagues, alumni cups, and family championships. Register for open events on UTR Club #3156.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register on UTR</a>
+        <a class="button button-secondary on-light" href="history.html">Browse past events</a>
+      </div>
+    </header>
+
+    <section class="container page-section">
+      <div class="page-toolbar">
+        <p class="section-status" id="events-status">Loading events…</p>
+      </div>
+      <div class="event-grid" id="events-grid"></div>
+      <p class="event-note" id="events-note"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="resources/images/logo/BayAreaTennis_Logo.svg" alt="">
+        <span>Bay Area Tennis · PureWave</span>
+      </div>
+      <div class="footer-links">
+        <a href="events.html">Events</a>
+        <a href="history.html">History</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p>Year-round tennis. A community that moves together.</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>

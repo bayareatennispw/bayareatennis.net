@@ -1,0 +1,20 @@
+{
+  "brand": "PureWave · Bay Area Tennis",
+  "tagline": "Year-round tennis. A community that moves together.",
+  "register_url": "https://app.utrsports.net/club/3156?tab=info",
+  "utr_club": "#3156",
+  "contact_email": "partnership@purewavesports.com",
+  "social": {
+    "wechat": "湾区网事",
+    "rednote": "@BayAreaTennis_PW",
+    "instagram": "https://www.instagram.com/BayAreaTennis_PW/",
+    "instagram_handle": "@BayAreaTennis_PW"
+  },
+  "nav": [
+    { "label": "Events", "href": "events.html" },
+    { "label": "History", "href": "history.html" },
+    { "label": "Products", "href": "products.html" },
+    { "label": "About", "href": "index.html#about" },
+    { "label": "Contact", "href": "index.html#contact" }
+  ]
+}

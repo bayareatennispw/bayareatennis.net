@@ -3,384 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Year-round tennis leagues, tournaments, and community events connecting players and families across the Bay Area.">
-  <meta name="theme-color" content="#121212">
-  <title>PureWave | Bay Area Tennis</title>
+  <meta name="description" content="Year-round tennis leagues, tournaments, and community events connecting players, families, university alumni, and professionals across the Bay Area.">
+  <meta name="theme-color" content="#1E4B0C">
+  <title>Bay Area Tennis | PureWave</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-    body {
-      margin: 0;
-      background: #121212;
-      color: #f5f5f5;
-      font-family: Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    :root {
-      --bg: #121212;
-      --surface: #1c1c1c;
-      --surface-raised: #252525;
-      --text: #f5f5f5;
-      --muted: #a3a3a3;
-      --accent: #e5f04d;
-      --green: #1d7c53;
-      --blue: #176bbf;
-      --border: rgba(255, 255, 255, .12);
-      --content-width: 1160px;
-    }
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .wrap { width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; }
-    .nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 10;
-      height: 72px;
-      padding: 0 max(24px, calc((100vw - var(--content-width)) / 2));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      background: rgba(18, 18, 18, .92);
-      backdrop-filter: blur(16px);
-    }
-    .brand { display: inline-flex; align-items: center; text-decoration: none; }
-    .brand img { display: block; width: 138px; height: 42px; object-fit: cover; object-position: center; }
-    .nav-links { display: flex; align-items: center; gap: 8px; }
-    .nav-links a, .button {
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 17px;
-      border: 0;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: color .2s, background .2s, transform .2s;
-    }
-    .nav-links a { color: var(--muted); }
-    .nav-links a:hover { color: var(--text); background: var(--surface-raised); transform: scale(1.04); }
-    .button:hover { transform: scale(1.04); }
-    .button:active, .nav-links a:active { transform: scale(.98); }
-    .button-primary { background: var(--accent); color: #121212; }
-    .button-primary:hover { background: #eff77b; }
-    .button-ghost { border: 1px solid var(--border); color: var(--text); }
-    .button-ghost:hover { background: var(--surface-raised); }
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-    }
-    .mobile-menu { display: none; }
-    .hero {
-      min-height: 680px;
-      padding: 144px 24px 104px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      isolation: isolate;
-      position: relative;
-      overflow: hidden;
-      background: #171a18 url("resources/images/court.png") center 55% / cover no-repeat;
-    }
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      background: rgba(12, 14, 13, .76);
-    }
-    .hero-content { max-width: 820px; }
-    .eyebrow {
-      margin: 0 0 20px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    .hero h1 {
-      max-width: 780px;
-      margin: 0 auto 20px;
-      font-size: clamp(48px, 8vw, 88px);
-      font-weight: 900;
-      letter-spacing: -.065em;
-      line-height: .98;
-    }
-    .hero-copy { max-width: 650px; margin: 0 auto 30px; color: #dedede; font-size: clamp(17px, 2.2vw, 20px); }
-    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-    .hero-note { margin: 48px 0 0; color: #d0d0d0; font-size: 13px; }
-    .hero-note strong { color: var(--text); }
-    .section { padding: 104px 0; }
-    .section-header { max-width: 720px; margin-bottom: 42px; }
-    .section-kicker { margin: 0 0 12px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-    .section h2 { margin-bottom: 16px; font-size: clamp(32px, 5vw, 48px); line-height: 1.08; letter-spacing: -.045em; }
-    .section-intro { margin-bottom: 0; color: var(--muted); font-size: 18px; }
-    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: start; }
-    .about .section-header { margin-bottom: 0; }
-    .about-copy { padding-top: 24px; color: #d0d0d0; font-size: 18px; }
-    .about-copy p:last-child { margin-bottom: 0; }
-    .about-emphasis { color: var(--text); font-weight: 700; }
-    .events-section { background: #181818; }
-    .event-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .event-card {
-      min-height: 220px;
-      padding: 26px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      transition: background .3s, transform .3s;
-    }
-    .event-card:hover { background: var(--surface-raised); transform: translateY(-3px); }
-    .event-index { display: inline-block; margin-bottom: 26px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
-    .event-card h3 { margin-bottom: 9px; font-size: 19px; line-height: 1.25; }
-    .event-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
-    .event-note { margin: 28px 0 0; padding: 18px 22px; border-left: 3px solid var(--green); border-radius: 2px 8px 8px 2px; background: var(--surface); color: #d0d0d0; font-size: 14px; }
-    .community-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
-    .community-panel { padding: 36px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
-    .community-panel h3 { margin-bottom: 20px; font-size: 21px; }
-    .audience-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .audience-list span { padding: 9px 14px; border: 1px solid var(--border); border-radius: 999px; color: #dedede; font-size: 14px; }
-    .highlights-panel { background: var(--blue); border-color: transparent; }
-    .highlights-panel p { margin-bottom: 0; color: #fff; }
-    .highlights-panel .highlight-label { margin-bottom: 14px; color: #d6e9fa; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .partners-section { background: #181818; }
-    .partner-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 72px; padding: 0; list-style: none; }
-    .partner-list li { padding: 12px 20px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: #ececec; font-size: 15px; font-weight: 700; }
-    .partnership-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .partnership-item { padding: 21px; border-top: 2px solid var(--green); background: var(--surface); }
-    .partnership-item h3 { margin-bottom: 7px; font-size: 16px; }
-    .partnership-item p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
-    .partner-note { margin: 28px 0 0; color: var(--muted); font-size: 14px; }
-    .join-section { padding: 88px 0; }
-    .join-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 48px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #121212;
-    }
-    .join-card .section-kicker { color: #3e4800; }
-    .join-card h2 { margin-bottom: 12px; font-size: clamp(32px, 5vw, 46px); line-height: 1.08; letter-spacing: -.045em; }
-    .join-card p { max-width: 610px; margin-bottom: 0; color: #303505; }
-    .join-actions { display: flex; flex: 0 0 auto; flex-direction: column; gap: 10px; }
-    .join-actions .button-primary { background: #121212; color: var(--accent); }
-    .join-actions .button-primary:hover { background: #2a2a2a; }
-    .join-actions .button-ghost { border-color: rgba(18,18,18,.3); color: #121212; }
-    .join-actions .button-ghost:hover { background: rgba(18,18,18,.08); }
-    .social-list { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 28px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
-    .social-list strong { color: var(--text); }
-    .social-list a { color: var(--text); text-decoration-color: #747474; text-underline-offset: 3px; }
-    .footer { padding: 28px 0 36px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer p { margin: 0; }
-    .footer-brand { color: var(--text); font-weight: 700; }
-    @media (max-width: 800px) {
-      .nav { height: 64px; padding: 0 24px; }
-      .brand img { width: 124px; height: 38px; }
-      .nav-links { gap: 2px; }
-      .nav-links a { padding: 8px 11px; font-size: 13px; }
-      .nav-links .button { margin-left: 4px; }
-      .hero { min-height: 620px; }
-      .about { grid-template-columns: 1fr; gap: 18px; }
-      .about-copy { padding-top: 0; }
-      .event-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .partnership-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 600px) {
-      html { scroll-padding-top: 72px; }
-      .wrap { width: min(100% - 36px, var(--content-width)); }
-      .nav { height: 60px; padding: 0 18px; }
-      .nav-links { display: none; }
-      .menu-toggle { display: inline-grid; place-items: center; }
-      .menu-toggle svg { width: 20px; height: 20px; }
-      .mobile-menu {
-        position: fixed;
-        top: 60px;
-        right: 0;
-        z-index: 9;
-        display: none;
-        width: min(300px, 86vw);
-        padding: 14px 20px 20px;
-        flex-direction: column;
-        border: 1px solid var(--border);
-        border-top: 0;
-        border-radius: 0 0 0 10px;
-        background: rgba(28, 28, 28, .98);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, .35);
-      }
-      .mobile-menu.open { display: flex; }
-      .mobile-menu a { padding: 13px 4px; border-bottom: 1px solid var(--border); color: var(--text); font-weight: 600; text-decoration: none; }
-      .mobile-menu a:last-child { margin-top: 12px; border: 0; border-radius: 999px; background: var(--accent); color: #121212; text-align: center; }
-      .hero { min-height: 600px; padding: 120px 18px 76px; }
-      .hero h1 { font-size: clamp(46px, 14vw, 68px); }
-      .hero-copy { font-size: 17px; }
-      .hero-note { margin-top: 36px; }
-      .section { padding: 76px 0; }
-      .section-header { margin-bottom: 30px; }
-      .section-intro { font-size: 16px; }
-      .about-copy { font-size: 16px; }
-      .event-grid, .community-layout, .partnership-grid { grid-template-columns: 1fr; }
-      .event-card { min-height: 0; padding: 22px; }
-      .event-index { margin-bottom: 18px; }
-      .community-panel { padding: 26px; }
-      .partner-list { margin-bottom: 48px; }
-      .join-section { padding: 60px 0; }
-      .join-card { padding: 30px 24px; flex-direction: column; align-items: flex-start; }
-      .join-actions { width: 100%; flex-direction: row; flex-wrap: wrap; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="#top" aria-label="PureWave home">
-      <img src="resources/images/logo/pw_white.svg" alt="PureWave">
+    <a class="brand" href="#top" aria-label="Bay Area Tennis home">
+      <img src="resources/images/logo/BayAreaTennis_Logo.svg" alt="Bay Area Tennis">
     </a>
     <div class="nav-links">
-      <a href="#events">Events</a>
-      <a href="#community">Community</a>
-      <a href="#partners">Partners</a>
-      <a class="button button-primary" href="#join">Get involved</a>
+      <a href="events.html">Events</a>
+      <a href="history.html">History</a>
+      <a href="products.html">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="button button-primary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register Now</a>
     </div>
     <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
       </svg>
     </button>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#events">Events</a>
-    <a href="#community">Community</a>
-    <a href="#partners">Partners</a>
-    <a href="#join">Get involved</a>
+    <a href="events.html">Events</a>
+    <a href="history.html">History</a>
+    <a href="products.html">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a data-register href="https://app.utrsports.net/club/3156?tab=info">Register Now</a>
   </div>
 
   <main id="top">
     <header class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Bay Area Tennis · Since 2019</p>
-        <h1>Swing the Pure Wave Within</h1>
-        <p class="hero-copy">Year-round leagues, tournaments, and community events bringing players, families, alumni, and professionals together across the Bay Area.</p>
+      <div class="container hero-content">
+        <p class="eyebrow">Bay Area Tennis Community</p>
+        <h1 class="hero-title"><span>Take the Court.</span><span>Make It Yours.</span></h1>
+        <p class="hero-copy">Meet fellow players, join tournaments, and enjoy every swing across year-round leagues and community events.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#events">Explore events <span aria-hidden="true">&nbsp;↘</span></a>
-          <a class="button button-ghost" href="#join">Join the community</a>
+          <a class="button button-primary" href="events.html">Explore Upcoming Events</a>
+          <a class="button button-secondary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register Now</a>
         </div>
-        <p class="hero-note"><strong>Singles · Doubles · Teams · Families</strong><br>Rooted in the Bay Area, connected across the Pacific Coast.</p>
+        <p class="hero-note">Open Events · Level-Based Match Play · Community Connections</p>
       </div>
     </header>
 
-    <section class="section" id="about">
-      <div class="wrap about">
+    <section class="section" id="events">
+      <div class="container">
         <div class="section-header">
-          <p class="section-kicker">A community in motion</p>
-          <h2>More than a match.</h2>
-        </div>
-        <div class="about-copy">
-          <p><span class="about-emphasis">Bay Area Tennis has brought players together since 2019</span> through singles and doubles leagues, team tournaments, family events, and regional competitions.</p>
-          <p>We connect players throughout the Bay Area and with tennis communities across Northern California, Southern California, and the Pacific Coast. Whether you come to compete, meet your next doubles partner, or bring the family, there is a place for you on court.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section events-section" id="events">
-      <div class="wrap">
-        <div class="section-header">
-          <p class="section-kicker">Find your next match</p>
-          <h2>Play your way.</h2>
+          <p class="section-kicker">Upcoming events</p>
+          <h2>Find your next match</h2>
           <p class="section-intro">Flexible formats and welcoming competition for every kind of tennis community.</p>
         </div>
-        <div class="event-grid">
-          <article class="event-card">
-            <span class="event-index">01 / SINGLES</span>
-            <h3>BAT Singles Tournament</h3>
-            <p>Flexible matches across the Bay Area, with adult, women’s, junior, and different UTR-level divisions.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">02 / DOUBLES</span>
-            <h3>BAT Doubles League</h3>
-            <p>A season-long doubles competition with flexible scheduling.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">03 / TEAM LEAGUE</span>
-            <h3>Summer UTR Team League</h3>
-            <p>Weekly team competition on the UTR Team League platform.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">04 / ALUMNI</span>
-            <h3>Zijing Cup Alumni Team Championship</h3>
-            <p>Held since 2016, with Gold and Silver divisions in men’s, women’s, and mixed doubles.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">05 / FAMILY</span>
-            <h3>Fotile Cup Family Championship</h3>
-            <p>Couples, parent-child teams, siblings, and multigenerational families meet on court.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">06 / COMMUNITY</span>
-            <h3>Silicon Valley Technology Elite Tournament</h3>
-            <p>A gathering for technology professionals, founders, executives, professors, and alumni teams.</p>
-          </article>
-          <article class="event-card">
-            <span class="event-index">07 / REGIONAL</span>
-            <h3>More ways to compete</h3>
-            <p>Regional community tournaments, Pacific Coast invitationals, Northern–Southern California exchanges, mixed doubles, and Junior Team Tennis.</p>
-          </article>
+        <div class="section-toolbar">
+          <p class="section-status" id="events-status">Loading events…</p>
+          <a class="text-link" href="events.html">View all events</a>
         </div>
-        <p class="event-note">Event listings include dates, locations, divisions, eligibility, entry fees, registration deadlines, registration links, and results.</p>
-      </div>
-    </section>
-
-    <section class="section" id="community">
-      <div class="wrap">
-        <div class="section-header">
-          <p class="section-kicker">Our community</p>
-          <h2>All kinds of players. One shared court.</h2>
-        </div>
-        <div class="community-layout">
-          <div class="community-panel">
-            <h3>There’s room for you here.</h3>
-            <div class="audience-list">
-              <span>Recreational &amp; competitive players</span>
-              <span>Families &amp; junior players</span>
-              <span>US &amp; Chinese university alumni</span>
-              <span>Technology &amp; industry professionals</span>
-              <span>Regional exchange teams</span>
-            </div>
-          </div>
-          <div class="community-panel highlights-panel">
-            <p class="highlight-label">Community highlights</p>
-            <h3>Every point has a story.</h3>
-            <p>Match photography, team stories, family moments, tournament results, and season recaps celebrate the people and memories behind every match.</p>
-          </div>
+        <div class="event-grid" id="events-grid" data-featured="true"></div>
+        <p class="event-note" id="events-note"></p>
+        <div class="section-cta">
+          <a class="button button-primary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register on UTR Club #3156</a>
         </div>
       </div>
     </section>
 
-    <section class="section partners-section" id="partners">
-      <div class="wrap">
+    <section class="section section-surface" id="about">
+      <div class="container community-grid">
+        <div class="community-copy">
+          <div class="section-header">
+            <p class="section-kicker">About us</p>
+            <h2>More than a match</h2>
+          </div>
+          <p><strong>Bay Area Tennis has operated since 2019</strong>, bringing players together through singles and doubles leagues, team tournaments, family events, and regional competitions.</p>
+          <p>Rooted in the Bay Area, our community connects with tennis communities across Northern California, Southern California, and the Pacific Coast.</p>
+          <ul class="audience-list" aria-label="Who can join">
+            <li>Recreational and competitive players</li>
+            <li>Families and junior players</li>
+            <li>Alumni from US and Chinese universities</li>
+            <li>Technology professionals and people across other industries</li>
+            <li>Teams in regional tennis exchanges</li>
+          </ul>
+          <a class="button button-primary" href="#contact">Join the community</a>
+        </div>
+        <aside class="community-panel" aria-label="Community highlights">
+          <p class="section-kicker">Community highlights</p>
+          <h3>Every point has a story.</h3>
+          <p>Match photography, team stories, family moments, tournament results, and season recaps.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="history-preview">
+      <div class="container">
         <div class="section-header">
-          <p class="section-kicker">Selected partners &amp; supporters</p>
-          <h2>Good people make a great game.</h2>
+          <p class="section-kicker">Past events</p>
+          <h2>History on court</h2>
+          <p class="section-intro">Championships, comebacks, and weekends that keep the community moving.</p>
+        </div>
+        <div class="card-grid">
+          <a class="story-card" href="history.html">
+            <time datetime="2026-10-18">Oct 18, 2026</time>
+            <h3>2026 Zijing Cup — Gold Division Championship</h3>
+            <p>Ke-Guang-Chuan fought back from a 5–0 group-stage loss to win Gold in a deciding match tiebreak.</p>
+            <span class="text-link">Read story</span>
+          </a>
+          <a class="story-card" href="history.html">
+            <time datetime="2026-10-07">Oct 7, 2026</time>
+            <h3>UTR Summer League — Silver Champions</h3>
+            <p>Samoyeye’s 36-player squad won Silver after a season of team practices and challenge matches.</p>
+            <span class="text-link">Read story</span>
+          </a>
+          <a class="story-card" href="history.html">
+            <time datetime="2026-09-12">Sep 12, 2026</time>
+            <h3>Songshan Lake Technology Elite Tournament</h3>
+            <p>Twelve tech and alumni teams gathered in Fremont for a Silicon Valley weekend of competition.</p>
+            <span class="text-link">Read story</span>
+          </a>
+        </div>
+        <div class="section-cta">
+          <a class="button button-secondary on-light" href="history.html">Browse all history</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-surface" id="products-preview">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Products</p>
+          <h2>Gear for the next rally</h2>
+          <p class="section-intro">BAT towels, commemorative tees, and Doubles League designs from the product catalog.</p>
+        </div>
+        <div class="card-grid">
+          <a class="story-card" href="products.html">
+            <span class="product-meta">Towels</span>
+            <h3>BAT Tennis Towel</h3>
+            <p>Three graphic designs — Rally, Ripples, and Wave — ready for courtside and everyday use.</p>
+            <span class="text-link">Shop catalog</span>
+          </a>
+          <a class="story-card" href="products.html">
+            <span class="product-meta">T-Shirts</span>
+            <h3>Las Vegas 2027 Commemorative Tees</h3>
+            <p>Number One and Poker Chip designs celebrating BAT Nationals energy.</p>
+            <span class="text-link">Shop catalog</span>
+          </a>
+          <a class="story-card" href="products.html">
+            <span class="product-meta">Doubles League</span>
+            <h3>2027 Doubles League Collection</h3>
+            <p>Partner-inspired tees with black and white colorways across multiple designs.</p>
+            <span class="text-link">Shop catalog</span>
+          </a>
+        </div>
+        <div class="section-cta">
+          <a class="button button-primary" href="products.html">View all products</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Partners</p>
+          <h2>Good people make a great game</h2>
           <p class="section-intro">Thank you to the brands and community partners who help bring Bay Area tennis together.</p>
         </div>
         <ul class="partner-list" aria-label="Selected partners and supporters">
@@ -392,12 +180,6 @@
           <li>WeBox</li>
           <li>Haachi</li>
         </ul>
-
-        <div class="section-header">
-          <p class="section-kicker">Partner with us</p>
-          <h2>Meet your community on court.</h2>
-          <p class="section-intro">Connect with tennis communities through year-round leagues and weekend tournaments.</p>
-        </div>
         <div class="partnership-grid">
           <article class="partnership-item">
             <h3>Brand exposure</h3>
@@ -409,7 +191,7 @@
           </article>
           <article class="partnership-item">
             <h3>Player benefits</h3>
-            <p>Gift bags, prizes, services, and digital offers for players and families.</p>
+            <p>Gift bags, prizes, services, and digital offers.</p>
           </article>
           <article class="partnership-item">
             <h3>Event sponsorship</h3>
@@ -417,72 +199,56 @@
           </article>
           <article class="partnership-item">
             <h3>Campaign tracking</h3>
-            <p>Dedicated links, QR codes, promotional codes, and available engagement or redemption data.</p>
+            <p>Dedicated links, QR codes, promotional codes, and available engagement data.</p>
           </article>
           <article class="partnership-item">
             <h3>Flexible partnerships</h3>
-            <p>Single-event pilots or longer-term programs combining financial support with approved products or services.</p>
+            <p>Single-event pilots or longer-term programs combining support with products or services.</p>
           </article>
         </div>
         <p class="partner-note">Partnership packages are tailored to the event, audience, venue, and brand objectives.</p>
       </div>
     </section>
 
-    <section class="join-section" id="join">
-      <div class="wrap">
-        <div class="join-card">
-          <div>
-            <p class="section-kicker">Join our community</p>
-            <h2>Your next tennis story starts here.</h2>
-            <p>Follow along for events, community stories, and ways to get involved. For partnership inquiries, get in touch with our team.</p>
-          </div>
-          <div class="join-actions">
-            <a class="button button-primary" href="mailto:partnership@purewavesports.com">Partner with us</a>
-            <a class="button button-ghost" href="https://www.instagram.com/BayAreaTennis_PW/" target="_blank" rel="noreferrer">Follow on Instagram <span aria-hidden="true">&nbsp;↗</span></a>
-          </div>
+    <section class="contact-band" id="contact">
+      <div class="container contact-layout">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Your next tennis story starts here</h2>
+          <p class="section-intro">Register for events, follow community updates, or reach out about partnerships.</p>
+          <ul class="social-list">
+            <li><strong>WeChat Official Account</strong> Search “湾区网事”</li>
+            <li><strong>RedNote</strong> @BayAreaTennis_PW</li>
+            <li><strong>Instagram</strong> <a href="https://www.instagram.com/BayAreaTennis_PW/" target="_blank" rel="noreferrer">@BayAreaTennis_PW</a></li>
+            <li><strong>UTR Club</strong> #3156</li>
+            <li><strong>Partnerships</strong> <a href="mailto:partnership@purewavesports.com">partnership@purewavesports.com</a></li>
+          </ul>
         </div>
-        <ul class="social-list">
-          <li><strong>WeChat Official Account</strong> Search “湾区网事”</li>
-          <li><strong>RedNote</strong> @BayAreaTennis_PW</li>
-          <li><strong>Instagram</strong> <a href="https://www.instagram.com/BayAreaTennis_PW/" target="_blank" rel="noreferrer">@BayAreaTennis_PW</a></li>
-          <li><strong>UTR Club</strong> #3156</li>
-          <li><strong>Partnerships</strong> <a href="mailto:partnership@purewavesports.com">partnership@purewavesports.com</a></li>
-        </ul>
+        <div class="contact-actions">
+          <a class="button button-primary" data-register href="https://app.utrsports.net/club/3156?tab=info">Register on UTR</a>
+          <a class="button button-secondary" href="mailto:partnership@purewavesports.com">Partner with us</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-inner">
-      <p class="footer-brand">PureWave · Bay Area Tennis</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="resources/images/logo/BayAreaTennis_Logo.svg" alt="">
+        <span>Bay Area Tennis · PureWave</span>
+      </div>
+      <div class="footer-links">
+        <a href="events.html">Events</a>
+        <a href="history.html">History</a>
+        <a href="products.html">Products</a>
+        <a href="#contact">Contact</a>
+      </div>
       <p>Year-round tennis. A community that moves together.</p>
     </div>
   </footer>
 
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const mobileMenu = document.querySelector("#mobile-menu");
-
-    function closeMenu() {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-      mobileMenu.classList.remove("open");
-    }
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
-      mobileMenu.classList.toggle("open", !isOpen);
-    });
-
-    mobileMenu.addEventListener("click", (event) => {
-      if (event.target.closest("a")) closeMenu();
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
-    });
-  </script>
+  <script src="js/site.js"></script>
+  <script src="js/events.js"></script>
 </body>
 </html>
