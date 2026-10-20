@@ -19,7 +19,8 @@
     const color = String(variant.artwork_color || "").toLowerCase();
     if (color.includes("black")) return "Black";
     if (color.includes("white") || color.includes("off-white")) return "White";
-    return variant.artwork_color || variant.design || "Default";
+    // For designs like towel graphics, prefer the design name over ink color.
+    return variant.design || variant.artwork_color || "Default";
   }
 
   function buildGallery(product) {

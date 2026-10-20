@@ -44,7 +44,7 @@
           "availability": "Draft",
           "side_image_id": null,
           "images": {
-            "front": "images/IMG-01_BAT-banner-2-rally-2560x1440.png",
+            "front": "images/BAT-TWL_rally_front.png",
             "back": null,
             "side": null
           }
@@ -64,7 +64,7 @@
           "availability": "Draft",
           "side_image_id": null,
           "images": {
-            "front": "images/IMG-02_BAT-banner-3-ripples-2560x1440.png",
+            "front": "images/BAT-TWL_ripples_front.png",
             "back": null,
             "side": null
           }
@@ -84,16 +84,16 @@
           "availability": "Draft",
           "side_image_id": null,
           "images": {
-            "front": "images/IMG-03_BAT-banner-1-wave-2560x1440.png",
+            "front": "images/BAT-TWL_wave_front.png",
             "back": null,
             "side": null
           }
         }
       ],
       "images": [
-        "images/IMG-01_BAT-banner-2-rally-2560x1440.png",
-        "images/IMG-02_BAT-banner-3-ripples-2560x1440.png",
-        "images/IMG-03_BAT-banner-1-wave-2560x1440.png"
+        "images/BAT-TWL_rally_front.png",
+        "images/BAT-TWL_ripples_front.png",
+        "images/BAT-TWL_wave_front.png"
       ]
     },
     {
