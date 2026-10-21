@@ -71,6 +71,31 @@
 
     const firstGroup = groups[0];
     const firstView = firstGroup.views[0];
+    const initialViews = product.id === "BAT-TWL"
+      ? groups.map((group) => ({
+          view: group.views[0],
+          label: group.label
+        }))
+      : firstGroup.views
+          .filter((view) => view.view === "front" || view.view === "back")
+          .map((view) => ({ view, label: view.label }));
+    const initialMedia = initialViews.length > 1
+      ? `<div class="product-media product-media-grid product-media-grid-${product.id === "BAT-TWL" ? "towel" : "pair"}">
+          ${initialViews.map(({ view, label }) => `
+            <figure class="product-media-item">
+              <img class="product-main-image" src="${escapeHtml(view.src)}" alt="${escapeHtml(product.title || "Product")} — ${escapeHtml(label)}${product.id === "BAT-TWL" ? " design" : ""}" loading="lazy">
+            </figure>
+          `).join("")}
+        </div>`
+      : `<div class="product-media">
+          <img
+            class="product-main-image"
+            src="${escapeHtml(firstView.src)}"
+            alt="${escapeHtml(product.title || "Product")} — ${escapeHtml(firstView.label)}"
+            loading="lazy"
+            onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'product-media-fallback',textContent:'Image coming soon'}))"
+          >
+        </div>`;
     const colorControls = groups.length > 1
       ? `<div class="image-switcher" role="group" aria-label="Color">
           ${groups.map((group, index) => `
@@ -93,15 +118,7 @@
 
     return `
       <div class="product-gallery" data-gallery="${encodeURIComponent(JSON.stringify(groups))}">
-        <div class="product-media">
-          <img
-            class="product-main-image"
-            src="${escapeHtml(firstView.src)}"
-            alt="${escapeHtml(product.title || "Product")} — ${escapeHtml(firstView.label)}"
-            loading="lazy"
-            onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'product-media-fallback',textContent:'Image coming soon'}))"
-          >
-        </div>
+        ${initialMedia}
         ${colorControls}
         ${viewControls}
       </div>
@@ -139,11 +156,11 @@
     gallery.dataset.groupIndex = String(groupIndex);
     gallery.dataset.viewIndex = String(viewIndex);
 
-    const img = gallery.querySelector(".product-main-image");
-    if (img) {
-      img.src = view.src;
+    const media = gallery.querySelector(".product-media");
+    if (media) {
       const title = gallery.closest(".product-card")?.querySelector("h3")?.textContent || "Product";
-      img.alt = `${title} — ${group.label} ${view.label}`;
+      media.className = "product-media";
+      media.innerHTML = `<img class="product-main-image" src="${escapeHtml(view.src)}" alt="${escapeHtml(title)} — ${escapeHtml(group.label)} ${escapeHtml(view.label)}" loading="eager">`;
     }
 
     gallery.querySelectorAll("[data-group-index]").forEach((button) => {
@@ -185,11 +202,14 @@
               <h3>${escapeHtml(product.title || "")}</h3>
               <p>${escapeHtml(product.description || "")}</p>
               ${designs ? `<p class="product-designs">${escapeHtml(designs)}</p>` : ""}
-              <div class="product-detail">
-                <button class="button button-secondary on-light" type="button" data-toggle-product>View designs</button>
-                <div class="product-panel">
-                  ${variantMarkup(product)}
-                  ${product.to_confirm ? `<p class="product-note">${escapeHtml(product.to_confirm)}</p>` : ""}
+              <div class="product-actions">
+                <a class="button button-primary product-order-button" href="mailto:partnership@purewavesports.com?subject=${encodeURIComponent(`Product order inquiry: ${product.title || "BAT product"}`)}&body=${encodeURIComponent(`Hello Bay Area Tennis,\n\nI am interested in ordering: ${product.title || "BAT product"}.\n\nPlease share current availability, pricing, and ordering details.\n`)}">ORDER</a>
+                <div class="product-detail">
+                  <button class="button button-secondary on-light" type="button" data-toggle-product>View designs</button>
+                  <div class="product-panel">
+                    ${variantMarkup(product)}
+                    ${product.to_confirm ? `<p class="product-note">${escapeHtml(product.to_confirm)}</p>` : ""}
+                  </div>
                 </div>
               </div>
             </div>

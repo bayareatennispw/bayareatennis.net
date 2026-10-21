@@ -6,7 +6,7 @@ Year-round tennis leagues, tournaments, and community events connecting players,
 
 ## About Us
 
-Bay Area Tennis has operated since 2019, bringing players together through singles and doubles leagues, team tournaments, family events, and regional competitions.
+Bay Area Tennis has operated since 2010, bringing players together through singles and doubles leagues, team tournaments, family events, and regional competitions.
 
 Rooted in the Bay Area, our community connects with tennis communities across Northern California, Southern California, and the Pacific Coast.
 
@@ -24,11 +24,11 @@ Each event includes dates, location, divisions, eligibility, entry fees, registr
 
 ## Our Community
 
-- Recreational and competitive tennis players.
+- Recreational and competitive players.
 - Families and junior players.
-- Alumni from US and Chinese universities.
-- Technology professionals and people across other industries.
-- Teams participating in regional tennis exchanges.
+- US and Chinese university alumni.
+- Technology professionals and industry peers.
+- Regional tennis exchange teams.
 
 ## Community Highlights
 
