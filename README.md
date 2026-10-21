@@ -1,6 +1,6 @@
 # Bay Area Tennis · PureWave
 
-Static website for Bay Area Tennis community events, history, products, and UTR registration.
+Static website for Bay Area Tennis community events, history, and UTR registration.
 
 **Repo:** [bayareatennispw/bayareatennis.net](https://github.com/bayareatennispw/bayareatennis.net)
 
@@ -8,10 +8,9 @@ Static website for Bay Area Tennis community events, history, products, and UTR 
 
 | Page | File | Content |
 |------|------|---------|
-| Home | `index.html` | Hero, featured events, about, history preview, products preview, partners, contact |
+| Home | `index.html` | Hero, featured events, about, history preview, partners, contact |
 | Events | `events.html` | Full event list from JSON + Register on UTR |
 | History | `history.html` | Community stories (English / 中文) |
-| Products | `products.html` | Product catalog with Front / Back / Side image switching |
 
 **Register link:** [UTR Club #3156](https://app.utrsports.net/club/3156?tab=info)  
 Configured in `resources/site.json` and applied via `data-register` links.
@@ -20,20 +19,18 @@ Configured in `resources/site.json` and applied via `data-register` links.
 
 ```text
 bat/
-├── index.html / events.html / history.html / products.html
+├── index.html / events.html / history.html
 ├── styles.css
 ├── js/
 │   ├── site.js       # Nav, register URL
 │   ├── events.js
 │   ├── history.js
-│   └── products.js
 ├── resources/
 │   ├── content.md           # Editorial copy source
 │   ├── design_doc.md        # Visual design spec
 │   ├── site.json            # Brand, social, register URL
 │   ├── events/events.json
 │   ├── history/             # Stories + index.json
-│   ├── products/            # products.json + images/
 │   └── images/              # Logo, hero background
 └── serve.sh
 ```
@@ -48,18 +45,13 @@ Open **http://localhost:8080**
 
 - Events: http://localhost:8080/events.html
 - History: http://localhost:8080/history.html
-- Products: http://localhost:8080/products.html
 
 ## Update content
 
 - **Club copy** → edit `resources/content.md`, then update matching HTML sections if needed
 - **Events** → `resources/events/events.json`
 - **History** → add `YYYY-MM-DD_English.json` / `_Chinese.json` and list the date in `resources/history/index.json`
-- **Products** → `resources/products/products.json` and images under `resources/products/images/`
 - **Register / social** → `resources/site.json`
-
-Product image naming: `{product-id}_{color}_{view}.png`  
-Examples: `BAT-DL27-01_black_front.png`, `BAT-TEE-27-N1_back.png`
 
 ## GitHub Pages
 

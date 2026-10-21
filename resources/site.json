@@ -13,7 +13,6 @@
   "nav": [
     { "label": "Events", "href": "events.html" },
     { "label": "History", "href": "history.html" },
-    { "label": "Products", "href": "products.html" },
     { "label": "About", "href": "index.html#about" },
     { "label": "Contact", "href": "index.html#contact" }
   ]
