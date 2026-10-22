@@ -1,197 +1,339 @@
-# Fresh Athletic Style | Tennis Event Website Design Specification
+# BAT Website Brand Design Guidelines
 
-Version: 1.0 · October 20, 2026
+## 1. Brand and Visual Direction
 
-## 1. Reference and Scope
+- Full brand name: Bay Area Tennis. Abbreviation: BAT. Chinese name: 湾区网事.
+- Visual qualities: clear, energetic, authentic, restrained and welcoming.
+- Use a white background throughout the website, near-black headings and dark gray body text. Tennis yellow, court green and court blue provide brand recognition.
+- Apply the light theme consistently to navigation, page content, product pages, event pages, articles and footers.
+- Use brand colors for emphasis, actions and content sections. Build the main visual composition through whitespace, typographic hierarchy and authentic photography.
+- Avoid decorative gradients, glow, colored shadows, frosted glass, textures and grain backgrounds.
+- Use dark translucent overlays on photographs only when needed to keep overlaid text readable.
 
-Visual reference: [ProServe – Tennis Community Landing Page](https://dribbble.com/shots/26227740-ProServe-Tennis-Community-Landing-Page) by Dimas Has. Intended for tennis clubs, community events, and tournament registration homepages.
+## 2. Color System
 
-Design goal: Help visitors quickly understand an event, find its date and location, and register, while conveying a youthful, clean, welcoming sports atmosphere.
+### 2.1 Backgrounds, Text and Borders
 
-This is an implementation specification inspired by the reference, rather than a pixel-perfect reconstruction. The reference page lists colors including #FEFEFE, #052063, #5B6468, #0B1B12, #1E4B0C, #A2A6AE, and #699D5D. The palette below standardizes these for a project. Fonts, lime accents, dimensions, breakpoints, and interactions are proposed specifications; the original does not publish those parameters.
+| Role | Value | CSS Token |
+| --- | --- | --- |
+| Page background | `#FFFFFF` | `--bg-base` |
+| Card background | `#FFFFFF` | `--surface-card` |
+| Subtle section background | `#F7F8F7` | `--surface-subtle` |
+| Secondary surface | `#F0F2F1` | `--surface-secondary` |
+| Raised surface | `#FFFFFF` | `--surface-raised` |
+| Headings and primary text | `#121212` | `--text-primary` |
+| Body text | `#3D4540` | `--text-body` |
+| Secondary text | `#59635D` | `--text-secondary` |
+| Supporting text | `#66716A` | `--text-muted` |
+| Text on dark colored surfaces | `#FFFFFF` | `--text-inverse` |
+| Default border | `#DDE3DF` | `--border-default` |
+| Form and control border | `#7A857E` | `--border-control` |
+| Subtle divider | `#E9EDEA` | `--border-subtle` |
 
-## 2. Visual Principles
+- Keep page backgrounds and footers light. Reserve near-black primarily for text and selected icons.
+- Distinguish white cards through spacing, fine borders or subtle gray sections. Avoid heavy shadows.
+- Use body or primary text colors for product prices, entry requirements, form labels and essential information.
+- Do not use faint gray text for information users must read.
 
-- Use large, authentic court photography as the visual anchor; keep headlines and buttons simple.
-- Build the identity around court green and deep blue, reserving bright lime for priority actions.
-- Keep the main page white, concentrating darker areas in the hero and footer.
-- Use bold sans-serif typography, generous whitespace, and pill-shaped buttons.
-- Treat court lines and rackets as supporting elements that never obscure headlines or registration information.
+### 2.2 Brand Colors
 
-## 3. Color System
+| Color | Value | CSS Token | Application |
+| --- | --- | --- | --- |
+| Tennis yellow | `#E5F04D` | `--accent` | Primary buttons, emphasis labels and selective highlight fills |
+| Yellow hover | `#D9E538` | `--accent-hover` | Yellow control hover state |
+| Yellow active | `#CCD926` | `--accent-active` | Yellow control pressed state |
+| Court green | `#1D7C53` | `--brand-green` | Brand expression, featured content and green panels |
+| Deep court green | `#145A3B` | `--brand-green-deep` | Green control hover state and dark text |
+| Court blue | `#176BBF` | `--brand-blue` | Text links, information entry points and blue panels |
+| Deep court blue | `#0C3D6E` | `--brand-blue-deep` | Link hover state and blue control pressed state |
+| Yellow tint | `#FAFCE3` | `--tint-yellow` | Light backgrounds for highlighted information |
+| Green tint | `#EDF6F0` | `--tint-green` | Light backgrounds for featured content |
+| Blue tint | `#EEF5FC` | `--tint-blue` | Light backgrounds for informational messages |
 
-| Token | Hex | Usage |
-|---|---|---|
-| brand-green | #1E4B0C | Brand green, dark sections, label text |
-| brand-blue | #052063 | Brand blue, supporting blocks, links |
-| accent-lime | #D7F75B | Primary buttons, active navigation, key numbers; proposed addition |
-| ink | #0B1B12 | Headlines, body copy, text on lime buttons |
-| muted | #5B6468 | Dates, locations, supporting text |
-| canvas | #FEFEFE | Main page background |
-| surface | #F3F6EF | Event card backgrounds, alternating sections; proposed addition |
-| border | #DCE4D8 | Dividers and input borders; proposed addition |
-| on-dark | #FFFFFF | Headlines and descriptions over dark imagery |
+- Do not use tennis yellow for ordinary text, thin icons, form borders or focus outlines on white backgrounds.
+- Use near-black text on yellow fills. Do not place white text on yellow fills.
+- On white backgrounds, use court green, court blue or near-black for emphasized text. Express yellow emphasis through fills or color blocks.
+- Use white headings and body text on solid green or blue panels. Use dark text on tinted panels.
+- Establish one primary action hierarchy per hero or distinct content section. Blue and green support the primary yellow emphasis.
+- All three brand colors may appear across the website. Avoid stacking them as decoration or combining them in a three-color gradient.
 
-Suggested page balance: approximately 65% white and light backgrounds, 30% photography and green/blue areas, and 5% lime accents. Hero photography is exempt from the solid-color allocation.
+### 2.3 Semantic States
 
-Text pairings: Use ink on light backgrounds and lime buttons, and white on dark green or deep blue. Do not use lime for small text on white. Text over photographs requires a dark overlay; verify a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text against the final image.
+| State | Text and Icons | Light Background | CSS Tokens |
+| --- | --- | --- | --- |
+| Positive / Success | `#176641` | `#EDF7F0` | `--status-success` / `--status-success-bg` |
+| Negative / Error | `#B42335` | `#FFF0F2` | `--status-error` / `--status-error-bg` |
+| Warning | `#805600` | `#FFF7DF` | `--status-warning` / `--status-warning-bg` |
+| Information | `#155A9D` | `#EEF5FC` | `--status-info` / `--status-info-bg` |
+| Neutral | `#59635D` | `#F0F2F1` | `--status-neutral` / `--status-neutral-bg` |
 
-## 4. Typography
+- Use dark status text with light backgrounds appropriate to the white theme.
+- Pair status colors with text labels or icons. Color alone must not convey meaning.
+- Use success for completion and confirmation, error for failures and invalid input, and neutral for general information or unselected states.
+- Label states such as not yet open, registration closed and sold out explicitly.
+- Do not automatically color editorial opinions according to positive, negative or neutral sentiment.
 
-Use Manrope for English and Noto Sans SC for Chinese. Self-host WOFF2 files, load only the weights actually used, and set font-display: swap. Keep system fallback fonts readable during loading.
+## 3. Typography
 
-Font stack: Manrope, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif.
+### 3.1 Font Families
 
-| Role | Desktop size / line height | Mobile size / line height | Weight |
-|---|---|---|---|
-| English hero H1 | 80 / 84 px | 42 / 46 px | 800 |
-| Chinese hero H1 | 64 / 77 px | 36 / 45 px | 700 |
-| Section heading H2 | 44 / 53 px | 30 / 39 px | 700 |
-| Card heading H3 | 24 / 32 px | 22 / 30 px | 700 |
-| Hero description | 18 / 29 px | 16 / 26 px | 400 |
-| Body text | 16 / 26 px | 16 / 26 px | 400 |
-| Navigation and buttons | 15 / 22 px | 15 / 22 px | 600 |
-| Dates and labels | 14 / 20 px | 14 / 20 px | 500 |
+- English headings and body text: Figtree.
+- Chinese headings and body text: Noto Sans SC, with system Chinese font fallbacks.
+- Technical code, specification identifiers and essential monospaced data: JetBrains Mono. Do not use it for ordinary body text.
+- Standard weights: 400 for body text, 600 for functional labels and 700 for headings. Large brand headlines may use 800.
+- Coordinate English and Chinese sizes and weights. Do not shrink either language merely to force visual alignment.
+- Prefer locally hosted WOFF2 assets with `font-display: swap` so text remains visible while fonts load.
 
-Use -0.04em letter spacing for English H1 and -0.025em for English H2; keep Chinese letter spacing at 0. Aim for 2–3 lines in English hero headlines and approximately 8–12 Chinese characters per line in Chinese headlines. For Chinese body copy, target approximately 28–36 characters per line; avoid descriptions spanning the entire screen.
+```css
+font-family: "Figtree", "Noto Sans SC", "PingFang SC",
+  "Microsoft YaHei", Arial, sans-serif;
+```
 
-## 5. Grid and Spacing
+### 3.2 Responsive Type Scale
 
-| Property | Desktop ≥1200 px | Tablet 768–1199 px | Mobile <768 px |
-|---|---|---|---|
-| Maximum content width | 1280 px | 100% | 100% |
-| Horizontal page padding | 48 px | 32 px | 20 px |
-| Grid | 12 columns | 8 columns | 4 columns |
-| Column gap | 24 px | 24 px | 16 px |
-| Section vertical padding | 96 px | 72 px | 56 px |
-| Event card columns | 3 | 2 | 1 |
+| Level | Mobile | Desktop | Line Height | Weight |
+| --- | --- | --- | --- | --- |
+| Hero headline | 40–48px | 64–80px | 1.05–1.15 | 700–800 |
+| Page title H1 | 32–40px | 48–64px | 1.1–1.2 | 700 |
+| Section heading H2 | 28–32px | 36–44px | 1.15–1.25 | 700 |
+| Card / subsection heading H3 | 20–24px | 24–28px | 1.25–1.35 | 700 |
+| Body text | 16–18px | 18px | 1.6–1.8 | 400 |
+| Functional text / navigation | 16px | 16px | 1.4–1.5 | 600 |
+| Supporting text | 14px | 14px | 1.5–1.6 | 400 |
+| Short labels | 12–13px | 12–13px | 1.4 | 600 |
 
-Use an 8 px spacing system: 8, 16, 24, 32, 48, 64, and 96 px. Reserve 4 px adjustments for icon and label details. Desktop gaps: headline to description 24 px; description to buttons 32 px; section heading to cards 40 px. Mobile equivalents: 16, 24, and 24 px.
+- Use responsive sizing. Do not scale the entire page or horizontally compress type to fit content.
+- Use `65ch` as the baseline maximum reading width for long-form text. Chinese articles may use approximately `38em`.
+- Break headings at meaningful boundaries. Keep brand names, short dates and fixed phrases intact.
+- Avoid `word-break: break-all` for body text. Use `overflow-wrap: anywhere` when necessary for URLs and other long strings.
+- Default to left alignment. Reserve centered text for short headings, brief introductions and standalone action areas.
+- Avoid all caps or excessive letter spacing in long passages. Short English labels may use modest tracking.
+- Do not hide essential product names, event names or information with single-line truncation.
 
-## 6. Homepage Hero
+## 4. Layout and Spacing
 
-### Composition
+- Use a fluid, responsive layout rather than a fixed poster canvas.
+- Center the main container with a maximum width of `1280px`.
+- Horizontal page padding: `20px` on mobile, `32px` on tablet and `48px` on desktop.
+- Spacing scale: `4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96px`.
+- Vertical section spacing: `48–64px` on mobile and `80–96px` on desktop.
+- Card padding: `20px` on mobile and `24–32px` on desktop.
+- Grid gaps: `16–20px` on mobile and `24–32px` on desktop.
+- Adapt breakpoints to content needs, using `640px / 960px / 1280px` as baseline breakpoints.
+- Favor one column on mobile. Product grids may use two columns when information remains readable. Desktop lists may use 2–4 columns.
+- Keep the hero focused on a clear heading, short description, primary action and visual subject.
+- Preserve logical reading order when desktop image-and-text layouts stack on mobile.
+- Sticky navigation must not obscure anchor targets, keyboard focus or dialog content.
 
-On desktop, use a wide court photograph or green-and-blue court color fields. Position the racket on the right and reserve space on the left for the headline. The image fills the hero, with content aligned to the page grid. Apply a dark-to-light overlay from left to right: approximately 65% opacity in black-green on the left and 10% on the right, adjusted to suit the photograph.
+## 5. Shapes, Borders and Depth
 
-Minimum hero height, including navigation: 760 px on desktop and 680 px on mobile. Allow the section to grow with its content; do not fix its height or crop buttons. Set the desktop text area to a maximum width of 680 px; use the available width on mobile. Adjust the mobile image focal point separately to prevent the racket from overlapping text.
+| Element | Rule |
+| --- | --- |
+| Standard cards | `8px` radius; a consistent value within `6–8px` may be selected |
+| Large panels / dialogs | `16px` radius; values within `10–20px` may be selected |
+| Inputs / select controls | `6px` radius with a 1px control border |
+| Primary and secondary buttons | Pill shape with `999px` radius |
+| Icon buttons / avatars | Circular |
+| Tables / compact data areas | Square internal cells; the outer container may use the card radius |
+| Images | Follow the parent container radius without adding a conflicting radius |
 
-### Navigation
+- Keep each component's radius consistent across the website.
+- Cards have no shadow by default. Use a 1px default border when needed.
+- Raised surfaces may use `0 12px 32px rgba(18,18,18,0.10)`.
+- Prefer border or surface changes for card hover states. Avoid large scale changes and strong shadows.
+- Use default borders to separate containers and stronger control borders for interactive elements.
 
-- Height: 80 px desktop, 64 px mobile; suggested logo height: 32 px.
-- Desktop navigation gap: 28 px. Highlight the active item with a lime pill or a thin underline.
-- Suggested links: Events, About Us, Past Events, Contact; place “Register Now” on the right.
-- Collapse navigation into a menu button on mobile. The expanded menu must support closing, keyboard focus, and Escape.
+## 6. Brand Marks and Icons
 
-### Sample Copy
+- Use Bay Area Tennis / BAT as the website brand name and use approved brand marks.
+- Use the PureWave mark only where its brand endorsement is appropriate. It must not replace the BAT name.
+- On white backgrounds, use approved black or green marks. Use black marks on yellow and white marks on solid blue or green.
+- Preserve original proportions, approved color variants and internal composition. Do not crop, stretch or redraw marks.
+- Maintain clear space around each mark of at least approximately one letter height.
+- When using Chinese or English taglines, preserve their approved wording and lockup relationships.
+- Use one consistent monochrome outline icon set, with `20px / 24px` baseline sizes and consistent stroke weight.
+- Give icon buttons accessible names. Do not substitute emoji for functional icons or brand marks.
 
-Eyebrow: BAY AREA TENNIS COMMUNITY
+## 7. Images, Photography and Video
 
-Headline, split across two lines:
+- Use authentic player, match, community and product photography. Favor natural scenes, vivid colors and clear people and action.
+- Preserve original image proportions by default. Review faces, rackets, movements, apparel marks and product details before cropping.
+- Prefer consistent white or light backgrounds for primary product images. Supporting images may show real use and courtside settings.
+- Product cards may use a consistent `1:1` or `4:5` image frame. Do not crop essential product parts merely to fill the frame.
+- Event and article cards may use `3:2` frames. Video covers should follow the video aspect ratio or a clearly defined cover format.
+- Portrait and event photography may use `object-fit: cover` with an appropriate focal point. Prefer `contain` for logos and complete product views.
+- Set image dimensions or `aspect-ratio` to reduce layout shifts during loading.
+- Lazy-load images below the initial viewport and supply image sizes appropriate to their display size.
+- Provide meaningful alternative text. Use empty alternative text for purely decorative images.
+- Give videos a poster image and clear playback controls. Do not autoplay audible video. Provide captions for spoken content.
+- Provide a pause control for looping photo strips. Offer a static or manually browsed version when reduced motion is preferred.
+- Do not make text embedded in images the only source of event details, product descriptions or entry requirements.
 
-Take the Court.  
-Make It Yours.
+## 8. Component Guidelines
 
-Description: Meet fellow players, join tournaments, and enjoy every swing.
+### 8.1 Buttons and Links
 
-Primary button: Explore Upcoming Events  
-Secondary button: About the Club
+- Primary buttons: yellow fill and near-black text. Use a clear near-black outline to define the button on white backgrounds.
+- Secondary buttons: white fill, deep green text and a deep green border.
+- Text links: court blue. Underline links in body text and use deep court blue on hover.
+- Do not use yellow link text on white backgrounds.
+- Minimum button height: `44px`. Horizontal padding: `20–24px`. Label: `16px / 600`.
+- Action labels should describe the result, such as View events, Register on UTR or Add to cart.
+- Disabled states use a light gray fill and a clear unavailable state. Do not simply lower the entire component's opacity and reduce text readability.
+- Loading states preserve button width and display a loading indicator to discourage duplicate submissions.
 
-For a single-event promotion, replace the headline with the event name, clearly display the date, location, and divisions in the supporting area, and use “Register Now” as the primary action. Do not publish unconfirmed dates or participant counts.
+### 8.2 Forms and Selection Controls
 
-The bottom of the hero may include verified community statistics or participant avatars. Without reliable figures, use “Open Events · Level-Based Match Play · Community Connections.”
+- Keep field labels visible. Placeholders must not replace labels.
+- Field text must be at least `16px`, with an input height of at least `44px`.
+- Use a white background, near-black text and the control border. Show a blue outer outline on focus.
+- Place error text beneath the relevant field, supported by error color and an icon. Preserve entered values.
+- Indicate selected sizes, colors and filters through outlines, text or selection marks as well as color.
+- Checkboxes, radio buttons, select menus and switches follow the same color and state semantics.
 
-## 7. Component Specifications
+### 8.3 Cards and Lists
 
-| Component | Suggested specification |
-|---|---|
-| Primary button | Lime background with dark text; 52 px height; 28 px horizontal padding; 999 px radius |
-| Secondary button | Transparent background; 1 px border; 52 px height; dark text on light areas, white text on dark areas |
-| Mobile buttons | 48 px height; stack at full width when space is limited; 12 px gap |
-| Event card | 1 px light border; 20 px radius; 24 px internal spacing; 4:3 image ratio |
-| Event status label | 28 px height; 12 px horizontal padding; 999 px radius; 14 px text / 500 weight |
-| Input | 48 px height; 12 px radius; 16 px horizontal padding; persistent label above |
-| Icons | 20 px standard, 24 px emphasis; consistent stroke width of approximately 1.75 px |
+- Use consistent, distinct templates for event, product and article cards.
+- Maintain a clear order for titles, supporting details, prices or dates, and actions.
+- Events display date, location and a registration entry point. Products display name, price and available options. Articles display title and necessary metadata.
+- Use labels only for meaningful categories and states. Avoid stacking multiple colored tags on every card.
+- Empty lists, no-result searches and loading failures provide clear text and an appropriate next step.
 
-Event card order: image → status/category → title → date and location → view details. Limit titles to two lines; keep the date, location, and registration status visible. Clearly label closed or full events in text and retain a details link.
+### 8.4 Navigation, Dialogs and Notifications
 
-Avoid heavy default card shadows. On hover, use 0 8px 24px rgba(11,27,18,0.08). Primary button hover background: #C9EA48; pressed background: #BBDD38. Use a neutral background for disabled states and explain why the action is unavailable.
+- Keep headers and footers white, separated from content through fine dividers or whitespace.
+- Identify the current navigation item through weight, an underline or a marker as well as color.
+- Mobile navigation, dialogs and drawers support keyboard interaction. Return focus to the trigger after closing.
+- Dialogs use white surfaces, near-black headings and subtle shadows. Background scrims may use translucent near-black.
+- Toasts and notifications use status labels, concise text and an appropriate dismiss control or action.
+- Provide default, hover, focus, pressed and disabled states wherever applicable.
 
-## 8. Corners, Imagery, and Decoration
+## 9. Motion and Accessibility
 
-- Card radius: 20 px; large image radius: 24 px; input radius: 12 px; buttons use a pill shape.
-- Favor authentic daylight court photography, action shots, and community group photos. Maintain natural white balance and modest saturation.
-- Avoid strong HDR, complex collages, and layered gradients; retain the natural character of court greens and blues.
-- Decorative court lines: 1–2 px at low opacity; no more than one major decorative element per section.
-- Supply desktop and mobile hero crops. Define image dimensions or aspect ratios to prevent layout shifts. Prioritize the hero image and lazy-load other images.
+- Use `100ms` for subtle feedback, `200ms` for standard color and border changes, and `300ms` for larger expansions.
+- Favor fades, small movements and surface changes. Avoid exaggerated bouncing and continuous flashing.
+- Disable nonessential animation and automatic scrolling for `prefers-reduced-motion: reduce`.
+- Provide visible keyboard focus for all interactive elements. Use a court blue outline with a `3px` offset.
+- Check text contrast against the actual background combination. A brand color value alone does not establish readability.
+- Communicate states, selections and links through text, shapes or markers as well as color.
+- Use semantic headings, logical reading order, explicit form labels and accessible control names.
+- Preserve browser zoom. Enlarging text must not hide essential content or controls.
 
-## 9. Homepage Content Order
+## 10. Voice and Information
 
-1. Hero: brand, headline, event value, and registration entry point.
-2. Upcoming events: three cards showing date, location, division, and status.
-3. Community introduction: short copy and an authentic group photo explaining who can join and how.
-4. Past events: selected photographs and links to tournament results.
-5. Partners: show approved logos at consistent heights without forcing equal widths.
-6. Footer: contact details, social links, and necessary privacy information.
+- Write in a direct, friendly and specific voice that reflects a real community and active sport.
+- Give figures a time period and unit. Distinguish player entries, unique participants, members and followers.
+- Use confirmed information for event descriptions, prices, inventory, partnership benefits and personal identities.
+- Functional copy should explain the next step. Name the destination platform on external registration buttons.
+- Organize English and Chinese according to the reading context rather than mechanically alternating every line.
+- Avoid unnatural line breaks, repeated spaces for alignment, full-paragraph highlighting and vague action labels.
 
-## 10. Interaction and Accessibility
-
-- Use 180 ms ease-out transitions for colors and shadows; hover movement should not exceed 2 px.
-- Avoid autoplay carousels and large animations that distract from registration. Respect prefers-reduced-motion.
-- Provide touch targets of at least 44×44 px for buttons and menus. Use a visible 3 px focus outline with a 3 px offset; select a contrasting outline color for each background.
-- Provide appropriate image alt text; decorative images use empty alt text. Never communicate status through color alone.
-- Display registration errors beneath the relevant fields and preserve entered values.
-
-## 11. CSS Tokens for Development
+## 11. Global CSS Variables
 
 ```css
 :root {
-  --brand-green: #1e4b0c;
-  --brand-blue: #052063;
-  --accent: #d7f75b;
-  --ink: #0b1b12;
-  --muted: #5b6468;
-  --canvas: #fefefe;
-  --surface: #f3f6ef;
-  --border: #dce4d8;
-  --on-dark: #fff;
-  --font-sans: "Manrope", "Noto Sans SC", "PingFang SC",
-    "Microsoft YaHei", sans-serif;
-  --container: 1280px;
-  --page-pad: 48px;
-  --section-space: 96px;
-  --radius-card: 20px;
-  --radius-control: 12px;
+  color-scheme: light;
+
+  --bg-base: #ffffff;
+  --surface-card: #ffffff;
+  --surface-subtle: #f7f8f7;
+  --surface-secondary: #f0f2f1;
+  --surface-raised: #ffffff;
+  --text-primary: #121212;
+  --text-body: #3d4540;
+  --text-secondary: #59635d;
+  --text-muted: #66716a;
+  --text-inverse: #ffffff;
+  --border-default: #dde3df;
+  --border-control: #7a857e;
+  --border-subtle: #e9edea;
+
+  --accent: #e5f04d;
+  --accent-hover: #d9e538;
+  --accent-active: #ccd926;
+  --brand-green: #1d7c53;
+  --brand-green-deep: #145a3b;
+  --brand-blue: #176bbf;
+  --brand-blue-deep: #0c3d6e;
+  --tint-yellow: #fafce3;
+  --tint-green: #edf6f0;
+  --tint-blue: #eef5fc;
+
+  --status-success: #176641;
+  --status-success-bg: #edf7f0;
+  --status-error: #b42335;
+  --status-error-bg: #fff0f2;
+  --status-warning: #805600;
+  --status-warning-bg: #fff7df;
+  --status-info: #155a9d;
+  --status-info-bg: #eef5fc;
+  --status-neutral: #59635d;
+  --status-neutral-bg: #f0f2f1;
+
+  --font-sans: "Figtree", "Noto Sans SC", "PingFang SC",
+    "Microsoft YaHei", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 8px;
+  --radius-panel: 16px;
+  --radius-input: 6px;
   --radius-pill: 999px;
+  --container-max: 1280px;
+  --reading-max: 65ch;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+  --shadow-raised: 0 12px 32px rgba(18, 18, 18, 0.10);
+  --focus-color: var(--brand-blue);
+  --motion-fast: 100ms;
+  --motion-base: 200ms;
+  --motion-slow: 300ms;
 }
-.container {
-  width: min(var(--container), calc(100% - 2 * var(--page-pad)));
-  margin-inline: auto;
+
+html {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
 }
-.hero-title {
-  font-size: clamp(42px, 5.56vw, 80px);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -.04em;
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-body);
+  font-size: 18px;
+  line-height: 1.7;
 }
-.hero-title:lang(zh) {
-  font-size: clamp(36px, 4.45vw, 64px);
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: 0;
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-@media (max-width: 1199px) {
-  :root { --page-pad: 32px; --section-space: 72px; }
+
+:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 3px;
 }
-@media (max-width: 767px) {
-  :root { --page-pad: 20px; --section-space: 56px; }
+
+::selection {
+  background: var(--accent);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 ```
 
-## 12. Acceptance Checklist
-
-- Check widths of 1440, 1024, 768, 390, and 320 px: no horizontal overflow, clipped headlines, or obscured buttons.
-- Test Chinese and English headlines, long event names, and font-loading failures.
-- Verify text contrast over actual images, keyboard menu operation, and visible button focus.
-- Ensure dates, locations, statuses, and primary actions are clear, and registration links work.
-- Obtain appropriate permissions for event content, photographs, likenesses, and logos. Use the reference artwork for style research only.
+- Manage colors, fonts, spacing, radii and motion through global variables. Components reference semantic tokens.
+- Components must not redefine the website background or introduce a separate dark theme.
+- Update tokens and documentation together when approved color values change. Avoid scattered, inconsistent hard-coded values.
