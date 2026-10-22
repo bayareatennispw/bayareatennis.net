@@ -202,6 +202,7 @@ font-family: "Figtree", "Noto Sans SC", "PingFang SC",
 ### 8.4 Navigation, Dialogs and Notifications
 
 - Keep headers and footers white, separated from content through fine dividers or whitespace.
+- Keep the Contact section background white. Use brand colors for its headings, labels, links and actions rather than a colored section fill.
 - Identify the current navigation item through weight, an underline or a marker as well as color.
 - Mobile navigation, dialogs and drawers support keyboard interaction. Return focus to the trigger after closing.
 - Dialogs use white surfaces, near-black headings and subtle shadows. Background scrims may use translucent near-black.
