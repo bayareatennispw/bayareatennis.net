@@ -619,8 +619,7 @@ button:focus-visible {
 /* Contact */
 .contact-band {
   padding: 40px 0;
-  background: var(--canvas);
-  border-block: 1px solid var(--border);
+  background: var(--tint-blue);
   color: var(--ink);
 }
 
