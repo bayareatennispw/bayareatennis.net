@@ -11,9 +11,9 @@
 
   if (!slidesContainer || !caption || !previousButton || !nextButton || !toggleButton) return;
 
+  const photoAssetVersion = "carousel-32-20261026";
   const photos = [
     ["A tennis player in black tracks the ball across the court.", "Focused through every rally."],
-    ["A tennis player in red reaches for a shot.", "Eyes on the next shot."],
     ["Four tennis players pose together by the net.", "Good competition, great company."],
     ["Tennis players celebrate together courtside.", "Every match brings players together."],
     ["A player in blue lunges to return a shot.", "Quick feet, ready hands."],
@@ -21,7 +21,6 @@
     ["A player in pink prepares to hit a forehand.", "Focused on the next return."],
     ["Players greet one another across the net.", "Good sportsmanship at the net."],
     ["Tennis friends pose together after a match.", "Friends made through tennis."],
-    ["A tennis player poses in front of the SO 2026 tournament backdrop.", "Representing the community at SO 2026."],
     ["A player in blue pauses courtside.", "Every match has its supporters."],
     ["Players and family members meet on court during an event.", "A team effort, on and off court."],
     ["A player in blue and white focuses on a shot.", "Ready for the next rally."],
@@ -51,7 +50,7 @@
     const slide = document.createElement("figure");
     slide.className = "community-slide";
     slide.dataset.caption = captionText;
-    slide.dataset.src = `resources/images/community/match-${String(index + 1).padStart(2, "0")}.jpg`;
+    slide.dataset.src = `resources/images/community/match-${String(index + 1).padStart(2, "0")}.jpg?v=${photoAssetVersion}`;
     slide.dataset.alt = alt;
     if (objectPosition) slide.dataset.objectPosition = objectPosition;
     if (objectFit) slide.dataset.objectFit = objectFit;
