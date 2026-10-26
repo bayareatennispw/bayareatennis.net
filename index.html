@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=brand-design-contact-white">
+  <link rel="stylesheet" href="styles.css?v=community-carousel">
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
@@ -89,9 +89,44 @@
           <a class="button button-primary" href="#contact">Join the community</a>
         </div>
         <aside class="community-panel" aria-label="Community highlights">
-          <p class="section-kicker">Community highlights</p>
-          <h3>Every point has a story.</h3>
-          <p>Match photography, team stories, family moments, tournament results, and season recaps.</p>
+          <div class="community-carousel" data-community-carousel role="group" aria-roledescription="carousel" aria-label="Bay Area Tennis community photos">
+            <div class="community-carousel-slides">
+              <figure class="community-slide is-active" data-caption="Courtside community" role="group" aria-roledescription="slide" aria-label="Photo 1 of 6" aria-hidden="false">
+                <img src="resources/images/community/community-courtside-team.jpg" alt="Tennis spectators watch a match from courtside bleachers." width="1600" height="1066" loading="lazy" decoding="async">
+              </figure>
+              <figure class="community-slide" data-caption="Team spirit between matches" role="group" aria-roledescription="slide" aria-label="Photo 2 of 6" aria-hidden="true">
+                <img src="resources/images/community/community-team-huddle.jpg" alt="A tennis team celebrates together on court." width="1600" height="1067" loading="lazy" decoding="async">
+              </figure>
+              <figure class="community-slide" data-caption="Every rally brings us closer" role="group" aria-roledescription="slide" aria-label="Photo 3 of 6" aria-hidden="true">
+                <img src="resources/images/community/community-match-play.jpg" alt="A player reaches for a shot during a tennis match." width="1600" height="1386" loading="lazy" decoding="async">
+              </figure>
+              <figure class="community-slide" data-caption="A community courtside" role="group" aria-roledescription="slide" aria-label="Photo 4 of 6" aria-hidden="true">
+                <img src="resources/images/community/community-event-courts.jpg" alt="Players compete while the community watches from the sidelines." width="1600" height="1066" loading="lazy" decoding="async">
+              </figure>
+              <figure class="community-slide" data-caption="Good games, good company" role="group" aria-roledescription="slide" aria-label="Photo 5 of 6" aria-hidden="true">
+                <img src="resources/images/community/community-post-match.jpg" alt="Two players exchange a friendly fist bump after a match." width="1600" height="1066" loading="lazy" decoding="async">
+              </figure>
+              <figure class="community-slide" data-caption="Celebrating every achievement" role="group" aria-roledescription="slide" aria-label="Photo 6 of 6" aria-hidden="true">
+                <img src="resources/images/community/community-tournament-awards.jpg" alt="Tennis players pose with their tournament awards." width="1600" height="1066" loading="lazy" decoding="async">
+              </figure>
+            </div>
+            <div class="community-carousel-content">
+              <p class="section-kicker">Community highlights</p>
+              <div class="community-carousel-copy">
+                <h3>Every point has a story.</h3>
+                <p class="community-slide-caption" data-community-caption>Players, partners, community</p>
+              </div>
+              <div class="community-carousel-controls" aria-label="Photo controls">
+                <button type="button" data-community-previous aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button type="button" data-community-toggle aria-label="Pause automatic photo rotation">Pause</button>
+                <button type="button" data-community-next aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </aside>
       </div>
     </section>
@@ -191,5 +226,6 @@
 
   <script src="js/site.js"></script>
   <script src="js/events.js"></script>
+  <script src="js/community-highlights.js"></script>
 </body>
 </html>

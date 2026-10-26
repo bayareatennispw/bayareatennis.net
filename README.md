@@ -25,13 +25,14 @@ bat/
 │   ├── site.js       # Nav, register URL
 │   ├── events.js
 │   ├── history.js
+│   ├── community-highlights.js # Homepage photo carousel
 ├── resources/
 │   ├── content.md           # Editorial copy source
 │   ├── design_doc.md        # Visual design spec
 │   ├── site.json            # Brand, social, register URL
 │   ├── events/events.json
 │   ├── history/             # Stories + index.json
-│   └── images/              # Logo, hero background
+│   └── images/              # Logo, hero background, community photos
 └── serve.sh
 ```
 
