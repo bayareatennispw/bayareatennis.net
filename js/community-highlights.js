@@ -15,20 +15,19 @@
     ["A tennis player in black tracks the ball across the court.", "Focused through every rally."],
     ["A tennis player in red reaches for a shot.", "Eyes on the next shot."],
     ["Four tennis players pose together by the net.", "Good competition, great company."],
-    ["A tennis player in red prepares to return the ball.", "Rallying for every point."],
     ["Tennis players celebrate together courtside.", "Every match brings players together."],
     ["A player in blue lunges to return a shot.", "Quick feet, ready hands."],
     ["Players greet one another beside the net.", "Tennis brings people together."],
     ["A player in pink prepares to hit a forehand.", "Focused on the next return."],
     ["Players greet one another across the net.", "Good sportsmanship at the net."],
-    ["A tennis player in pink smiles courtside.", "Celebrating every day on court.", "50% 0%"],
     ["Tennis friends pose together after a match.", "Friends made through tennis."],
+    ["A tennis player poses in front of the SO 2026 tournament backdrop.", "Representing the community at SO 2026."],
     ["A player in blue pauses courtside.", "Every match has its supporters."],
     ["Players and family members meet on court during an event.", "A team effort, on and off court."],
     ["A player in blue and white focuses on a shot.", "Ready for the next rally."],
-    ["Tennis players share a courtside moment.", "A courtside moment worth remembering."],
     ["Two community members talk beside a tournament table.", "Community comes together behind every event."],
     ["Tennis community members pose together after an event.", "Celebrating a day of competition."],
+    ["A large tennis team celebrates together after an event.", "Celebrating together as one team.", "50% 50%", "contain"],
     ["A tennis player in black moves into position on court.", "Moving into the shot."],
     ["Four tennis community members pose together on court.", "One community, many teammates."],
     ["A player in gray prepares to return a shot.", "Finding the right moment to strike."],
@@ -37,19 +36,25 @@
     ["Two players greet each other after a match.", "Respect and friendship after the final point."],
     ["A tennis player smiles between points.", "A smile that says it all."],
     ["A volunteer welcomes visitors at a tournament table.", "A friendly face at the courts."],
+    ["Two event volunteers prepare supplies at a tennis court.", "Helping make tournament day a success."],
+    ["Three tennis community members pose together at an event.", "Good company on and off court."],
     ["A player in blue reaches for a shot.", "Proud of the work put in."],
     ["A large group of tennis players poses together.", "Good competition, great community."],
+    ["Tennis players and spectators gather courtside.", "A lively day at the courts."],
+    ["Tennis community members watch a match together.", "Sharing the excitement courtside."],
+    ["Spectators cheer from the side of the court.", "Every match brings the community together."],
     ["A player in gray waits with his racket between points.", "Aiming for the corner."],
     ["Two tennis players pose with their tournament award.", "A team photo to remember."],
     ["A tennis player in white tracks the next shot.", "Between points, focus remains."]
   ];
-  const slides = photos.map(([alt, captionText, objectPosition], index) => {
+  const slides = photos.map(([alt, captionText, objectPosition, objectFit], index) => {
     const slide = document.createElement("figure");
     slide.className = "community-slide";
     slide.dataset.caption = captionText;
     slide.dataset.src = `resources/images/community/match-${String(index + 1).padStart(2, "0")}.jpg`;
     slide.dataset.alt = alt;
     if (objectPosition) slide.dataset.objectPosition = objectPosition;
+    if (objectFit) slide.dataset.objectFit = objectFit;
     slide.setAttribute("role", "group");
     slide.setAttribute("aria-roledescription", "slide");
     slide.setAttribute("aria-label", `Photo ${index + 1} of ${photos.length}`);
@@ -75,6 +80,7 @@
     image.height = 1067;
     image.decoding = "async";
     if (slide.dataset.objectPosition) image.style.objectPosition = slide.dataset.objectPosition;
+    if (slide.dataset.objectFit) image.style.objectFit = slide.dataset.objectFit;
     image.addEventListener("error", () => {
       console.error(`Community photo failed to load: ${slide.dataset.src}`);
     }, { once: true });
