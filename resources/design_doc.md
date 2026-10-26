@@ -209,6 +209,12 @@ font-family: "Figtree", "Noto Sans SC", "PingFang SC",
 - Toasts and notifications use status labels, concise text and an appropriate dismiss control or action.
 - Provide default, hover, focus, pressed and disabled states wherever applicable.
 
+### 8.5 About and Community
+
+- On desktop, keep the About copy in a narrow column beside a larger community-photo carousel.
+- On tablet and mobile, stack the copy first and the carousel below it.
+- Keep the audience list compact and the carousel controls visible over its photography.
+
 ## 9. Motion and Accessibility
 
 - Use `100ms` for subtle feedback, `200ms` for standard color and border changes, and `300ms` for larger expansions.

@@ -12,53 +12,44 @@
   if (!slidesContainer || !caption || !previousButton || !nextButton || !toggleButton) return;
 
   const photos = [
-    ["A couple smiles together at a tennis community event.", "Together on and off the court."],
-    ["Three tennis community members pose together outdoors.", "The people who make the community."],
-    ["A tennis player poses with his racket at a tournament.", "Ready for the next point."],
-    ["A woman checks in players at a tennis event.", "Every event starts with a warm welcome."],
-    ["Two event volunteers review information together at a table.", "A team effort, on and off court."],
-    ["A woman tennis player reaches for a shot on court.", "Moving into the shot."],
-    ["A tennis player in a red shirt hits a forehand.", "Focus on every rally."],
-    ["A tennis player in red stretches for a ball.", "Chasing down every ball."],
-    ["A player in red reaches for a shot near the net.", "One point at a time."],
-    ["A tennis player in red serves during a match.", "Watching the ball closely."],
-    ["A player reaches for a tennis shot in a black-and-white photo.", "Up for the challenge."],
-    ["A tennis player in white hits a forehand.", "Starting the point."],
-    ["A tennis player holds his racket in front of a tournament backdrop.", "Finding the perfect angle."],
-    ["A woman tennis player swings her racket on court.", "A moment worth celebrating."],
-    ["A smiling tennis player in pink poses courtside.", "Rallying together."],
-    ["A woman tennis player runs to return a shot.", "A clean hit and a clear view."],
-    ["A woman in a blue tennis top watches from courtside.", "Every match has its supporters."],
-    ["A tennis player in blue reaches for a shot.", "The joy of being on court."],
-    ["Players gather at a tournament welcome table.", "A warm welcome for every player."],
-    ["A tennis player reaches for a shot on a clay court.", "Eyes on the next shot."],
-    ["A woman tennis player in a Stanford shirt reaches for the ball.", "In the middle of the action."],
-    ["A woman tennis player waits in a ready position.", "Reading the play."],
-    ["A smiling woman tennis player holds her racket.", "Ready at the baseline."],
-    ["A woman tennis player poses in a cap and towel.", "Proud of the work put in."],
-    ["A tennis player in blue prepares a forehand.", "A day well spent on court."],
-    ["A tennis player in gray holds his racket between points.", "Quick feet, ready hands."],
-    ["Two men greet each other at a tennis event.", "Every player has a story."],
-    ["A tennis community group poses together on court.", "Good competition, great community."],
-    ["A woman welcomes visitors at a tennis event tent.", "A friendly face at the courts."],
-    ["Three tennis players pose with a tournament sign.", "Friends made through tennis."],
-    ["Four tennis players pose together by the net.", "One community, many teammates."],
-    ["A group of women tennis players pose together on court.", "Sharing the win."],
-    ["Four friends pose together after playing tennis.", "More than a match."],
-    ["Tennis players greet each other during a match.", "Good sportsmanship in every match."],
-    ["A tennis team poses together after a tournament.", "A team photo to remember."],
-    ["Tournament winners pose with their awards.", "Celebrating together."],
-    ["A tennis couple poses with their tournament prize.", "A shared love for tennis."],
-    ["Two tennis partners pose together on court.", "Better together."],
-    ["A tennis player looks toward the court before a point.", "A quiet moment before the serve."],
-    ["A family poses together with tennis rackets on court.", "Tennis brings generations together."]
+    ["A tennis player in black tracks the ball across the court.", "Focused through every rally."],
+    ["A tennis player in red reaches for a shot.", "Eyes on the next shot."],
+    ["Four tennis players pose together by the net.", "Good competition, great company."],
+    ["A tennis player in red prepares to return the ball.", "Rallying for every point."],
+    ["Tennis players celebrate together courtside.", "Every match brings players together."],
+    ["A player in blue lunges to return a shot.", "Quick feet, ready hands."],
+    ["Players greet one another beside the net.", "Tennis brings people together."],
+    ["A player in pink prepares to hit a forehand.", "Focused on the next return."],
+    ["Players greet one another across the net.", "Good sportsmanship at the net."],
+    ["A tennis player in pink smiles courtside.", "Celebrating every day on court.", "50% 0%"],
+    ["Tennis friends pose together after a match.", "Friends made through tennis."],
+    ["A player in blue pauses courtside.", "Every match has its supporters."],
+    ["Players and family members meet on court during an event.", "A team effort, on and off court."],
+    ["A player in blue and white focuses on a shot.", "Ready for the next rally."],
+    ["Tennis players share a courtside moment.", "A courtside moment worth remembering."],
+    ["Two community members talk beside a tournament table.", "Community comes together behind every event."],
+    ["Tennis community members pose together after an event.", "Celebrating a day of competition."],
+    ["A tennis player in black moves into position on court.", "Moving into the shot."],
+    ["Four tennis community members pose together on court.", "One community, many teammates."],
+    ["A player in gray prepares to return a shot.", "Finding the right moment to strike."],
+    ["A tennis team celebrates together on court.", "More than a match."],
+    ["A tennis player in black tracks the incoming ball.", "A clear view of the ball."],
+    ["Two players greet each other after a match.", "Respect and friendship after the final point."],
+    ["A tennis player smiles between points.", "A smile that says it all."],
+    ["A volunteer welcomes visitors at a tournament table.", "A friendly face at the courts."],
+    ["A player in blue reaches for a shot.", "Proud of the work put in."],
+    ["A large group of tennis players poses together.", "Good competition, great community."],
+    ["A player in gray waits with his racket between points.", "Aiming for the corner."],
+    ["Two tennis players pose with their tournament award.", "A team photo to remember."],
+    ["A tennis player in white tracks the next shot.", "Between points, focus remains."]
   ];
-  const slides = photos.map(([alt, captionText], index) => {
+  const slides = photos.map(([alt, captionText, objectPosition], index) => {
     const slide = document.createElement("figure");
     slide.className = "community-slide";
     slide.dataset.caption = captionText;
     slide.dataset.src = `resources/images/community/match-${String(index + 1).padStart(2, "0")}.jpg`;
     slide.dataset.alt = alt;
+    if (objectPosition) slide.dataset.objectPosition = objectPosition;
     slide.setAttribute("role", "group");
     slide.setAttribute("aria-roledescription", "slide");
     slide.setAttribute("aria-label", `Photo ${index + 1} of ${photos.length}`);
@@ -83,6 +74,7 @@
     image.width = 1600;
     image.height = 1067;
     image.decoding = "async";
+    if (slide.dataset.objectPosition) image.style.objectPosition = slide.dataset.objectPosition;
     image.addEventListener("error", () => {
       console.error(`Community photo failed to load: ${slide.dataset.src}`);
     }, { once: true });
