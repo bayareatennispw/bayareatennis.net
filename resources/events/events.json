@@ -1,9 +1,68 @@
 {
   "register_url": "https://app.utrsports.net/club/3156?tab=info",
-  "note": "Each event includes dates, location, divisions, eligibility, entry fees, registration deadlines, registration links, and results.",
+  "note": "Event details are maintained in one shared data file so each event can keep the same page URL as it moves from upcoming to ongoing to past.",
   "events": [
     {
+      "id": "bat-doubles-2026-27",
+      "lifecycle": "upcoming",
+      "status": "Upcoming",
+      "title": "2026–27 BAT Doubles",
+      "meta": "November 2026 – March 2027 · Flexible doubles league",
+      "description": "A season-long doubles league with regular season play, playoffs, and a championship final.",
+      "featured": true,
+      "slug": "2026-27-bat-doubles",
+      "detail_url": "events/2026-27-bat-doubles.html",
+      "source_url": "https://sites.google.com/view/2026-27batdoubles/",
+      "registration": {
+        "team_pre_registration_url": "https://forms.gle/c34UEGz6EbHBfeSN8",
+        "utr_url": null
+      },
+      "stages": [
+        {
+          "number": "01",
+          "name": "Regular Season",
+          "timing": "November 2026 – January 2027",
+          "description": "Complete at least three matches to qualify for playoffs and the championship."
+        },
+        {
+          "number": "02",
+          "name": "Playoffs",
+          "timing": "Four weeks · timing to confirm",
+          "description": "One or two rounds arranged based on team standings and updated UTR ratings."
+        },
+        {
+          "number": "03",
+          "name": "Final",
+          "timing": "March 2027 · weekend event",
+          "description": "Championship Weekend with rented courts; the exact location is still to be confirmed."
+        }
+      ],
+      "divisions": [
+        { "name": "Open Group", "eligibility": "Championship weekend only." },
+        { "name": "Diamond Group", "eligibility": "15 ≤ TPI ≤ 17." },
+        { "name": "Platinum Group", "eligibility": "13 ≤ TPI ≤ 15." },
+        { "name": "Gold Group", "eligibility": "11 ≤ TPI ≤ 13." },
+        { "name": "Silver Group", "eligibility": "9 ≤ TPI ≤ 11." },
+        { "name": "Crystal Group", "eligibility": "7 ≤ TPI ≤ 9." },
+        { "name": "Pearl Group", "eligibility": "5 ≤ TPI ≤ 7." },
+        { "name": "Jade Group", "eligibility": "UTR range not specified in the source; confirm with BAT." },
+        { "name": "MuLan Group", "eligibility": "3 ≤ TPI ≤ 9; may be divided into Phoenix and Peacock if registration is sufficient." },
+        { "name": "Newbie Group", "eligibility": "3 ≤ TPI ≤ 7 for players without verified UTRs; verified UTR players are welcome." },
+        { "name": "Yahua Cup Advanced", "eligibility": "7 ≤ TPI ≤ 9; junior players only." },
+        { "name": "Yahua Cup Intermediate", "eligibility": "5 ≤ TPI ≤ 7; junior players only." },
+        { "name": "Yahua Cup Beginner", "eligibility": "3 ≤ TPI ≤ 5; junior players only." }
+      ],
+      "rules": [
+        "Teams may include 2–4 players, with no age, gender, or nationality restrictions.",
+        "All adult matches are best of three sets; the third set may be a 10-point tiebreak.",
+        "Matches are mutually scheduled. The home team must propose three time slots on different days, including a weekday evening and a weekend option.",
+        "Players captain their own teams by scheduling matches and entering or editing scores in the UTR Team League system.",
+        "Teams may replace players mid-season for injury or extended travel with coordinator approval and comparable skill."
+      ]
+    },
+    {
       "id": "bat-singles",
+      "lifecycle": "upcoming",
       "status": "Singles",
       "title": "BAT Singles Tournament",
       "meta": "Bay Area · Adult, women’s, junior & UTR divisions",
@@ -13,6 +72,7 @@
     },
     {
       "id": "bat-doubles",
+      "lifecycle": "upcoming",
       "status": "Doubles",
       "title": "BAT Doubles League",
       "meta": "Bay Area · Flexible scheduling",
@@ -22,6 +82,7 @@
     },
     {
       "id": "utr-summer",
+      "lifecycle": "upcoming",
       "status": "Team League",
       "title": "Summer UTR Team League",
       "meta": "UTR Team League platform · Weekly play",
@@ -31,6 +92,7 @@
     },
     {
       "id": "zijing-cup",
+      "lifecycle": "past",
       "status": "Alumni",
       "title": "Zijing Cup Alumni Team Championship",
       "meta": "Held since 2016 · Gold & Silver",
@@ -40,6 +102,7 @@
     },
     {
       "id": "fotile-cup",
+      "lifecycle": "upcoming",
       "status": "Family",
       "title": "Fotile Cup Family Championship",
       "meta": "Families · Multigenerational play",
@@ -49,6 +112,7 @@
     },
     {
       "id": "sv-tech-elite",
+      "lifecycle": "past",
       "status": "Community",
       "title": "Silicon Valley Technology Elite Tournament",
       "meta": "Tech professionals · Alumni teams",
@@ -58,6 +122,7 @@
     },
     {
       "id": "more",
+      "lifecycle": "upcoming",
       "status": "More",
       "title": "More Competitions",
       "meta": "Regional · Pacific Coast · Junior",
