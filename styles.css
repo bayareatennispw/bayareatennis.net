@@ -975,6 +975,44 @@ button:focus-visible {
   line-height: 20px;
 }
 
+.newbies-block {
+  padding: 32px;
+  border: 1px solid #c7dcf0;
+  border-left: 4px solid var(--brand-blue);
+  border-radius: var(--radius-card);
+  background: var(--tint-blue);
+}
+
+.newbies-block h2 {
+  margin-bottom: 12px;
+}
+
+.newbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  margin-top: 24px;
+}
+
+.newbies-grid h3 {
+  margin: 0 0 8px;
+  color: var(--brand-blue-deep);
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.newbies-grid .detail-list {
+  margin: 0;
+}
+
+.newbies-summary {
+  margin: 28px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid #c7dcf0;
+  color: var(--brand-blue-deep);
+  font-weight: 600;
+}
+
 .detail-copy,
 .detail-list {
   color: var(--muted);
@@ -1257,6 +1295,8 @@ html[lang="zh"] .hero-title {
   .stage-list,
   .division-grid { grid-template-columns: 1fr; }
   .division-card { align-items: flex-start; }
+  .newbies-block { padding: 24px; }
+  .newbies-grid { grid-template-columns: 1fr; gap: 20px; }
   .detail-block { padding-bottom: 40px; }
   .detail-block + .detail-block { padding-top: 40px; }
   .registration-card { padding: 24px; }

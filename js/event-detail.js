@@ -4,6 +4,7 @@
   const stages = document.querySelector("[data-event-stages]");
   const divisions = document.querySelector("[data-event-divisions]");
   const rules = document.querySelector("[data-event-rules]");
+  const newbiesContent = document.querySelector("[data-newbies-content]");
   const formLinks = document.querySelectorAll("[data-team-registration]");
   if (!title || !stages || !divisions || !rules) return;
 
@@ -37,6 +38,15 @@
         </article>
       `).join("");
       rules.innerHTML = event.rules.map((rule) => `<li>${escapeHtml(rule)}</li>`).join("");
+      if (newbiesContent && event.newbies) {
+        newbiesContent.querySelector("[data-newbies-intro]").textContent = event.newbies.intro;
+        ["eligibility", "format", "scheduling", "perks"].forEach((key) => {
+          newbiesContent.querySelector(`[data-newbies-${key}]`).innerHTML = event.newbies[key]
+            .map((item) => `<li>${escapeHtml(item)}</li>`)
+            .join("");
+        });
+        newbiesContent.querySelector("[data-newbies-summary]").textContent = event.newbies.short_version;
+      }
     } catch (error) {
       console.error(error);
       stages.innerHTML = "<p>Event details could not be loaded.</p>";

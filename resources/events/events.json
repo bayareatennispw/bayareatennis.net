@@ -20,9 +20,9 @@
       "stages": [
         {
           "number": "01",
-          "name": "Regular Season",
+          "name": "Placement + Regular Season",
           "timing": "November 2026 – January 2027",
-          "description": "Complete at least three matches to qualify for playoffs and the championship."
+          "description": "Start with placement play, then complete at least three matches to qualify for playoffs and the championship."
         },
         {
           "number": "02",
@@ -58,7 +58,30 @@
         "Matches are mutually scheduled. The home team must propose three time slots on different days, including a weekday evening and a weekend option.",
         "Players captain their own teams by scheduling matches and entering or editing scores in the UTR Team League system.",
         "Teams may replace players mid-season for injury or extended travel with coordinator approval and comparable skill."
-      ]
+      ],
+      "newbies": {
+        "title": "Newbies Group — Now Recruiting!",
+        "intro": "A welcoming group for every new player who wants more match play or is looking for a new partner.",
+        "eligibility": [
+          "No UTR requirement. Both unverified and verified UTR players are welcome.",
+          "Unverified players can provide a self-rated UTR or a short playing video so the organizing committee can assign a preliminary rating."
+        ],
+        "format": [
+          "During the group stage, there are no fixed rosters. Sign up and pair up freely.",
+          "This group has no playoffs of its own. Players who reach 80% rating reliability and fit another division’s UTR range can form a team and enter that division’s playoffs as a wild card."
+        ],
+        "scheduling": [
+          "Set up your own matches; all scores count toward UTR.",
+          "Unverified members are encouraged to host: pick a time and place, then post a sign-up list.",
+          "Organizers may offer courts and time slots from time to time. Sign up in the WeChat group and split the court fee. More sessions may be added when response is strong."
+        ],
+        "perks": [
+          "Verified players with 100% reliability who play three matches can get their entry fee back or redeem it for league merchandise.",
+          "The more you play, the more you can earn, plus the Mentor MVP title.",
+          "Team captains are welcome to join and scout for hidden gems."
+        ],
+        "short_version": "Newbies Group welcomes every new player who wants more match play and anyone looking for a new partner. No verified UTR? No problem: share a self-rating or a playing video, play freely during the group stage, and build a reliable rating faster. Once you qualify, you can join another division’s playoffs. Verified players are also welcome to mentor; play three matches and get your entry fee back."
+      }
     },
     {
       "id": "bat-singles",
