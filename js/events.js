@@ -32,7 +32,7 @@
         <p>${escapeHtml(event.description || "")}</p>
         ${event.newbies ? `<div class="event-card-highlight">
           <strong>Newbies Group featured inside BAT Doubles</strong>
-          <span>No verified UTR required. Join with a self-rating or playing video, find a partner, and build reliable match history.</span>
+          <span>${escapeHtml(event.newbies.short_version)}</span>
         </div>` : ""}
         ${ctaMarkup(event, registerUrl)}
       </article>

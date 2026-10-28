@@ -404,6 +404,34 @@ button:focus-visible {
   line-height: 19px;
 }
 
+#events .event-grid[data-featured="true"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#events .event-grid[data-featured="true"] .event-card {
+  padding: 32px;
+}
+
+#events .event-grid[data-featured="true"] .event-card h3 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+#events .event-grid[data-featured="true"] .event-card-highlight {
+  max-width: 760px;
+  padding: 18px 20px;
+}
+
+#events .event-grid[data-featured="true"] .event-card-highlight strong {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+#events .event-grid[data-featured="true"] .event-card-highlight span {
+  font-size: 15px;
+  line-height: 24px;
+}
+
 .event-note {
   margin: 32px 0 0;
   padding: 18px 22px;
