@@ -949,28 +949,37 @@ button:focus-visible {
 }
 
 .division-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 8px 12px;
+  grid-template-columns: 1fr;
+  gap: 6px;
   margin-bottom: 24px;
 }
 
 .division-card {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  min-height: 0;
-  padding: 14px 16px;
+  gap: 10px;
+  min-height: 48px;
+  padding: 11px 14px;
+  border-radius: 6px;
+}
+
+.division-number {
+  flex: 0 0 24px;
+  color: var(--brand-green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
 }
 
 .division-card h3 {
   flex: 0 0 auto;
   margin: 0;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .division-card p {
+  flex: 1;
   font-size: 14px;
   line-height: 20px;
 }
@@ -1292,8 +1301,7 @@ html[lang="zh"] .hero-title {
   .event-list-section + .event-list-section { margin-top: 56px; }
   .event-detail-hero { padding-top: calc(var(--nav-h) + 40px); }
   .event-detail-lead { font-size: 17px; line-height: 27px; }
-  .stage-list,
-  .division-grid { grid-template-columns: 1fr; }
+  .stage-list { grid-template-columns: 1fr; }
   .division-card { align-items: flex-start; }
   .newbies-block { padding: 24px; }
   .newbies-grid { grid-template-columns: 1fr; gap: 20px; }

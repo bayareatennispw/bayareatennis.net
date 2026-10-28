@@ -33,6 +33,7 @@
       stages.innerHTML = event.stages.map(renderStage).join("");
       divisions.innerHTML = event.divisions.map((division) => `
         <article class="division-card">
+          <span class="division-number">${escapeHtml(division.number)}</span>
           <h3>${escapeHtml(division.name)}</h3>
           <p>${escapeHtml(division.eligibility)}</p>
         </article>

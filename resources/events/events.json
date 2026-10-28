@@ -38,19 +38,19 @@
         }
       ],
       "divisions": [
-        { "name": "Open Group", "eligibility": "Championship weekend only." },
-        { "name": "Diamond Group", "eligibility": "15 ≤ TPI ≤ 17." },
-        { "name": "Platinum Group", "eligibility": "13 ≤ TPI ≤ 15." },
-        { "name": "Gold Group", "eligibility": "11 ≤ TPI ≤ 13." },
-        { "name": "Silver Group", "eligibility": "9 ≤ TPI ≤ 11." },
-        { "name": "Crystal Group", "eligibility": "7 ≤ TPI ≤ 9." },
-        { "name": "Pearl Group", "eligibility": "5 ≤ TPI ≤ 7." },
-        { "name": "Jade Group", "eligibility": "UTR range not specified in the source; confirm with BAT." },
-        { "name": "MuLan Group", "eligibility": "3 ≤ TPI ≤ 9; may be divided into Phoenix and Peacock if registration is sufficient." },
-        { "name": "Newbie Group", "eligibility": "3 ≤ TPI ≤ 7 for players without verified UTRs; verified UTR players are welcome." },
-        { "name": "Yahua Cup Advanced", "eligibility": "7 ≤ TPI ≤ 9; junior players only." },
-        { "name": "Yahua Cup Intermediate", "eligibility": "5 ≤ TPI ≤ 7; junior players only." },
-        { "name": "Yahua Cup Beginner", "eligibility": "3 ≤ TPI ≤ 5; junior players only." }
+        { "number": "01", "name": "Open Group", "eligibility": "Championship weekend only." },
+        { "number": "02", "name": "Diamond Group", "eligibility": "15 ≤ TPI ≤ 17." },
+        { "number": "03", "name": "Platinum Group", "eligibility": "13 ≤ TPI ≤ 15." },
+        { "number": "04", "name": "Gold Group", "eligibility": "11 ≤ TPI ≤ 13." },
+        { "number": "05", "name": "Silver Group", "eligibility": "9 ≤ TPI ≤ 11." },
+        { "number": "06", "name": "Crystal Group", "eligibility": "7 ≤ TPI ≤ 9." },
+        { "number": "07", "name": "Pearl Group", "eligibility": "5 ≤ TPI ≤ 7." },
+        { "number": "08", "name": "Jade Group", "eligibility": "3 ≤ TPI ≤ 5." },
+        { "number": "09", "name": "MuLan Group", "eligibility": "3 ≤ TPI ≤ 9; may be divided into Phoenix and Peacock subgroups if registration is sufficient." },
+        { "number": "10", "name": "Newbie Group", "eligibility": "3 ≤ TPI ≤ 7 for players without verified UTRs; verified UTR players are welcome." },
+        { "number": "11", "name": "Yahua Cup Advanced", "eligibility": "7 ≤ TPI ≤ 9; junior players only." },
+        { "number": "12", "name": "Yahua Cup Intermediate", "eligibility": "5 ≤ TPI ≤ 7; junior players only." },
+        { "number": "13", "name": "Yahua Cup Beginner", "eligibility": "3 ≤ TPI ≤ 5; junior players only." }
       ],
       "rules": [
         "Teams may include 2–4 players, with no age, gender, or nationality restrictions.",
