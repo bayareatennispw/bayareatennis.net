@@ -364,6 +364,16 @@ button:focus-visible {
   line-height: 23px;
 }
 
+.recruitment-point strong::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 10px 2px 0;
+  border-radius: 50%;
+  background: var(--brand-green);
+  content: "";
+}
+
 .section-toolbar {
   display: flex;
   align-items: center;
