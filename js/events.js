@@ -11,6 +11,9 @@
     if (event.detail_url) {
       return `<a class="text-link" href="${escapeHtml(event.detail_url)}">View event details <span aria-hidden="true">→</span></a>`;
     }
+    if (event.lifecycle === "past") {
+      return `<a class="text-link" href="history.html">Past results</a>`;
+    }
     if (event.cta === "history") {
       return `<a class="text-link" href="history.html">Past results</a>`;
     }

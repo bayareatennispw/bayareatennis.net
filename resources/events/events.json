@@ -62,8 +62,8 @@
     },
     {
       "id": "bat-singles",
-      "lifecycle": "upcoming",
-      "status": "Singles",
+      "lifecycle": "past",
+      "status": "Past",
       "title": "BAT Singles Tournament",
       "meta": "Bay Area · Adult, women’s, junior & UTR divisions",
       "description": "Flexible matches across the Bay Area, with divisions for adults, women, juniors, and different UTR levels.",
@@ -72,8 +72,8 @@
     },
     {
       "id": "utr-summer",
-      "lifecycle": "upcoming",
-      "status": "Team League",
+      "lifecycle": "past",
+      "status": "Past",
       "title": "Summer UTR Team League",
       "meta": "UTR Team League platform · Weekly play",
       "description": "Weekly team competition on the UTR Team League platform.",
@@ -83,7 +83,7 @@
     {
       "id": "zijing-cup",
       "lifecycle": "past",
-      "status": "Alumni",
+      "status": "Past",
       "title": "Zijing Cup Alumni Team Championship",
       "meta": "Held since 2016 · Gold & Silver",
       "description": "Featuring Gold and Silver divisions with men’s, women’s, and mixed doubles.",
@@ -92,8 +92,8 @@
     },
     {
       "id": "fotile-cup",
-      "lifecycle": "upcoming",
-      "status": "Family",
+      "lifecycle": "past",
+      "status": "Past",
       "title": "Fotile Cup Family Championship",
       "meta": "Families · Multigenerational play",
       "description": "Tennis for couples, parent-child teams, siblings, and multigenerational families.",
@@ -103,7 +103,7 @@
     {
       "id": "sv-tech-elite",
       "lifecycle": "past",
-      "status": "Community",
+      "status": "Past",
       "title": "Silicon Valley Technology Elite Tournament",
       "meta": "Tech professionals · Alumni teams",
       "description": "Bringing together technology professionals, founders, executives, professors, and alumni teams.",
@@ -112,8 +112,8 @@
     },
     {
       "id": "more",
-      "lifecycle": "upcoming",
-      "status": "More",
+      "lifecycle": "past",
+      "status": "Past",
       "title": "More Competitions",
       "meta": "Regional · Pacific Coast · Junior",
       "description": "Regional community tournaments, Pacific Coast invitationals, Northern–Southern California exchanges, mixed doubles events, and Junior Team Tennis.",
