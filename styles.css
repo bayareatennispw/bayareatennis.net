@@ -299,6 +299,71 @@ button:focus-visible {
 
 .section-cta { margin-top: 32px; }
 
+.recruitment-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  background: var(--tint-yellow);
+}
+
+.recruitment-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: center;
+}
+
+.recruitment-copy {
+  max-width: 700px;
+}
+
+.recruitment-copy h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 3.5vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+
+.recruitment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.recruitment-actions .button-secondary {
+  border-color: var(--brand-green-deep);
+  color: var(--brand-green-deep);
+}
+
+.recruitment-actions .button-secondary:hover {
+  background: rgba(255, 255, 255, .7);
+}
+
+.recruitment-points {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(18, 18, 18, .2);
+}
+
+.recruitment-point {
+  display: grid;
+  gap: 4px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(18, 18, 18, .2);
+}
+
+.recruitment-point strong {
+  color: var(--brand-green-deep);
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.recruitment-point span {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 23px;
+}
+
 .section-toolbar {
   display: flex;
   align-items: center;
@@ -1273,7 +1338,18 @@ html[lang="zh"] .hero-title {
 
   .hero-copy { font-size: 16px; line-height: 26px; }
 
+  .recruitment-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .recruitment-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .hero-actions,
+  .recruitment-actions,
   .contact-actions {
     flex-direction: column;
     align-items: stretch;
