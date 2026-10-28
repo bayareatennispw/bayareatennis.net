@@ -305,6 +305,45 @@ button:focus-visible {
   background: var(--tint-yellow);
 }
 
+.recruitment-section-compact {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.recruitment-section-compact .recruitment-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr);
+  gap: 48px;
+}
+
+.recruitment-section-compact .recruitment-copy h2 {
+  margin-bottom: 8px;
+  font-size: clamp(30px, 3.2vw, 44px);
+}
+
+.recruitment-section-compact .section-intro {
+  margin-bottom: 16px;
+}
+
+.recruitment-inline-note {
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(18, 18, 18, .2);
+}
+
+.recruitment-inline-note strong {
+  color: var(--brand-green-deep);
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.recruitment-inline-note span {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 23px;
+}
+
 .recruitment-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
@@ -1356,6 +1395,22 @@ html[lang="zh"] .hero-title {
   .recruitment-layout {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .recruitment-section-compact {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .recruitment-section-compact .recruitment-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .recruitment-inline-note {
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(18, 18, 18, .2);
+    border-left: 0;
   }
 
   .hero-actions,
