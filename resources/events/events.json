@@ -71,16 +71,6 @@
       "cta": "register"
     },
     {
-      "id": "bat-doubles",
-      "lifecycle": "upcoming",
-      "status": "Doubles",
-      "title": "BAT Doubles League",
-      "meta": "Bay Area · Flexible scheduling",
-      "description": "A season-long doubles competition with flexible scheduling.",
-      "featured": true,
-      "cta": "register"
-    },
-    {
       "id": "utr-summer",
       "lifecycle": "upcoming",
       "status": "Team League",
