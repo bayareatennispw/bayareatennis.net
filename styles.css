@@ -950,7 +950,29 @@ button:focus-visible {
 
 .division-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 8px 12px;
   margin-bottom: 24px;
+}
+
+.division-card {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 0;
+  padding: 14px 16px;
+}
+
+.division-card h3 {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.division-card p {
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .detail-copy,
@@ -1234,6 +1256,7 @@ html[lang="zh"] .hero-title {
   .event-detail-lead { font-size: 17px; line-height: 27px; }
   .stage-list,
   .division-grid { grid-template-columns: 1fr; }
+  .division-card { align-items: flex-start; }
   .detail-block { padding-bottom: 40px; }
   .detail-block + .detail-block { padding-top: 40px; }
   .registration-card { padding: 24px; }
