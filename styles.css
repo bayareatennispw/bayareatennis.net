@@ -299,120 +299,6 @@ button:focus-visible {
 
 .section-cta { margin-top: 32px; }
 
-.recruitment-section {
-  padding-top: 72px;
-  padding-bottom: 72px;
-  background: var(--tint-yellow);
-}
-
-.recruitment-section-compact {
-  padding-top: 48px;
-  padding-bottom: 48px;
-}
-
-.recruitment-section-compact .recruitment-layout {
-  grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr);
-  gap: 48px;
-}
-
-.recruitment-section-compact .recruitment-copy h2 {
-  margin-bottom: 8px;
-  font-size: clamp(30px, 3.2vw, 44px);
-}
-
-.recruitment-section-compact .section-intro {
-  margin-bottom: 16px;
-}
-
-.recruitment-inline-note {
-  display: grid;
-  align-content: center;
-  gap: 4px;
-  padding-left: 24px;
-  border-left: 1px solid rgba(18, 18, 18, .2);
-}
-
-.recruitment-inline-note strong {
-  color: var(--brand-green-deep);
-  font-size: 17px;
-  line-height: 24px;
-}
-
-.recruitment-inline-note span {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 23px;
-}
-
-.recruitment-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
-  gap: clamp(32px, 6vw, 88px);
-  align-items: center;
-}
-
-.recruitment-copy {
-  max-width: 700px;
-}
-
-.recruitment-copy h2 {
-  margin: 0 0 16px;
-  font-size: clamp(30px, 3.5vw, 48px);
-  line-height: 1.15;
-  letter-spacing: -.03em;
-}
-
-.recruitment-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.recruitment-actions .button-secondary {
-  border-color: var(--brand-green-deep);
-  color: var(--brand-green-deep);
-}
-
-.recruitment-actions .button-secondary:hover {
-  background: rgba(255, 255, 255, .7);
-}
-
-.recruitment-points {
-  display: grid;
-  gap: 0;
-  border-top: 1px solid rgba(18, 18, 18, .2);
-}
-
-.recruitment-point {
-  display: grid;
-  gap: 4px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(18, 18, 18, .2);
-}
-
-.recruitment-point strong {
-  color: var(--brand-green-deep);
-  font-size: 18px;
-  line-height: 26px;
-}
-
-.recruitment-point span {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 23px;
-}
-
-.recruitment-point strong::before {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 0 10px 2px 0;
-  border-radius: 50%;
-  background: var(--brand-green);
-  content: "";
-}
-
 .section-toolbar {
   display: flex;
   align-items: center;
@@ -495,6 +381,27 @@ button:focus-visible {
   margin: 0 0 14px;
   color: var(--muted);
   flex: 1;
+}
+
+.event-card-highlight {
+  display: grid;
+  gap: 4px;
+  margin: 2px 0 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--brand-green);
+  background: var(--tint-yellow);
+}
+
+.event-card-highlight strong {
+  color: var(--brand-green-deep);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.event-card-highlight span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 19px;
 }
 
 .event-note {
@@ -1387,34 +1294,7 @@ html[lang="zh"] .hero-title {
 
   .hero-copy { font-size: 16px; line-height: 26px; }
 
-  .recruitment-section {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-
-  .recruitment-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .recruitment-section-compact {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-
-  .recruitment-section-compact .recruitment-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .recruitment-inline-note {
-    padding: 16px 0 0;
-    border-top: 1px solid rgba(18, 18, 18, .2);
-    border-left: 0;
-  }
-
   .hero-actions,
-  .recruitment-actions,
   .contact-actions {
     flex-direction: column;
     align-items: stretch;

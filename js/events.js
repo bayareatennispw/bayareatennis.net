@@ -30,6 +30,10 @@
         <h3>${escapeHtml(event.title || "")}</h3>
         ${event.meta ? `<p class="event-meta">${escapeHtml(event.meta)}</p>` : ""}
         <p>${escapeHtml(event.description || "")}</p>
+        ${event.newbies ? `<div class="event-card-highlight">
+          <strong>Newbies Group featured inside BAT Doubles</strong>
+          <span>No verified UTR required. Join with a self-rating or playing video, find a partner, and build reliable match history.</span>
+        </div>` : ""}
         ${ctaMarkup(event, registerUrl)}
       </article>
     `).join("");
