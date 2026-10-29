@@ -9,7 +9,8 @@ Static website for Bay Area Tennis community events, history, and UTR registrati
 | Page | File | Content |
 |------|------|---------|
 | Home | `index.html` | Hero, featured events, about, history preview, partners, contact |
-| Events | `events.html` | Full event list from JSON + Register on UTR |
+| Events | `events.html` | Upcoming, ongoing, and past event lists from JSON |
+| Event detail | `events/2026-27-bat-doubles.html` | Stable, reusable event announcement page |
 | History | `history.html` | Community stories (English / 中文) |
 
 **Register link:** [UTR Club #3156](https://app.utrsports.net/club/3156?tab=info)  
@@ -21,16 +22,19 @@ Configured in `resources/site.json` and applied via `data-register` links.
 bat/
 ├── index.html / events.html / history.html
 ├── styles.css
+├── events/
+│   └── 2026-27-bat-doubles.html
 ├── js/
 │   ├── site.js       # Nav, register URL
 │   ├── events.js
+│   ├── event-detail.js
 │   ├── history.js
 │   ├── community-highlights.js # Homepage photo carousel
 ├── resources/
 │   ├── content.md           # Editorial copy source
 │   ├── design_doc.md        # Visual design spec
 │   ├── site.json            # Brand, social, register URL
-│   ├── events/events.json
+│   ├── events/events.json       # Shared event index and detail content
 │   ├── history/             # Stories + index.json
 │   └── images/              # Logo, hero background, community photos
 └── serve.sh
@@ -50,7 +54,9 @@ Open **http://localhost:8080**
 ## Update content
 
 - **Club copy** → edit `resources/content.md`, then update matching HTML sections if needed
-- **Events** → `resources/events/events.json`
+- **Events** → `resources/events/events.json`. Add a new event object with a stable
+  `detail_url`, `lifecycle` (`upcoming`, `ongoing`, or `past`), and its content.
+  Update `lifecycle` as an event progresses so its dedicated URL stays unchanged.
 - **History** → add `YYYY-MM-DD_English.json` / `_Chinese.json` and list the date in `resources/history/index.json`
 - **Register / social** → `resources/site.json`
 

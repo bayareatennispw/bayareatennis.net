@@ -1,46 +1,43 @@
 (() => {
-  const grid = document.querySelector("#events-grid");
+  const primaryGrid = document.querySelector("#events-grid");
+  const pastGrid = document.querySelector("#past-events-grid");
   const note = document.querySelector("#events-note");
   const status = document.querySelector("#events-status");
-  const loadMoreButton = document.querySelector("#events-load-more");
-  if (!grid) return;
+  if (!primaryGrid && !pastGrid) return;
 
-  const { escapeHtml } = window.BAT || {
-    escapeHtml: (value) => String(value)
-  };
-  const pageSize = 8;
-  let visibleCount = pageSize;
+  const escapeHtml = window.BAT?.escapeHtml || ((value) => String(value));
 
   function ctaMarkup(event, registerUrl) {
+    if (event.detail_url) {
+      return `<a class="text-link" href="${escapeHtml(event.detail_url)}">View event details <span aria-hidden="true">→</span></a>`;
+    }
+    if (event.lifecycle === "past") {
+      return `<a class="text-link" href="history.html">Past results</a>`;
+    }
     if (event.cta === "history") {
       return `<a class="text-link" href="history.html">Past results</a>`;
     }
     return `<a class="text-link" href="${escapeHtml(registerUrl)}" target="_blank" rel="noreferrer">Register on UTR <span aria-hidden="true">↗</span></a>`;
   }
 
-  function renderEvents(events, registerUrl) {
-    const visibleEvents = events.slice(0, visibleCount);
+  function renderGrid(grid, events, registerUrl) {
+    if (!grid) return;
+    const featuredOnly = grid.dataset.featured === "true";
+    const visibleEvents = events.filter((event) => !featuredOnly || event.featured);
     grid.innerHTML = visibleEvents.map((event) => `
       <article class="event-card">
         <span class="event-status">${escapeHtml(event.status || "Event")}</span>
         <h3>${escapeHtml(event.title || "")}</h3>
         ${event.meta ? `<p class="event-meta">${escapeHtml(event.meta)}</p>` : ""}
         <p>${escapeHtml(event.description || "")}</p>
+        ${event.newbies ? `<div class="event-card-highlight">
+          <strong>Newbies Group featured inside BAT Doubles</strong>
+          <span>${escapeHtml(event.newbies.short_version)}</span>
+        </div>` : ""}
         ${ctaMarkup(event, registerUrl)}
       </article>
     `).join("");
-
-    if (loadMoreButton) {
-      loadMoreButton.hidden = visibleCount >= events.length;
-    }
   }
-
-  loadMoreButton?.addEventListener("click", () => {
-    visibleCount += pageSize;
-    loadMoreButton.disabled = true;
-    loadMoreButton.textContent = "Loading…";
-    loadEvents();
-  });
 
   async function loadEvents() {
     if (status) status.textContent = "Loading events…";
@@ -51,25 +48,15 @@
       const registerUrl = data.register_url
         || window.BAT?.config?.register_url
         || "https://app.utrsports.net/club/3156?tab=info";
-      const featuredOnly = grid.dataset.featured === "true";
-      const events = (data.events || []).filter((event) => !featuredOnly || event.featured);
+      const allEvents = data.events || [];
+      const upcomingEvents = allEvents.filter((event) => event.lifecycle !== "past");
+      const pastEvents = allEvents.filter((event) => event.lifecycle === "past");
 
-      if (status) {
-        status.textContent = `${events.length} event${events.length === 1 ? "" : "s"}`;
-      }
-
-      renderEvents(events, registerUrl);
-      if (loadMoreButton) {
-        loadMoreButton.disabled = false;
-        loadMoreButton.textContent = "Show more events";
-      }
-
+      renderGrid(primaryGrid, upcomingEvents, registerUrl);
+      renderGrid(pastGrid, pastEvents, registerUrl);
+      if (status) status.textContent = `${upcomingEvents.length} upcoming or ongoing event${upcomingEvents.length === 1 ? "" : "s"} · ${pastEvents.length} past event${pastEvents.length === 1 ? "" : "s"}`;
       if (note && data.note) note.textContent = data.note;
     } catch (error) {
-      if (loadMoreButton) {
-        loadMoreButton.disabled = false;
-        loadMoreButton.textContent = "Show more events";
-      }
       if (status) status.textContent = "Events could not be loaded.";
       console.error(error);
     }

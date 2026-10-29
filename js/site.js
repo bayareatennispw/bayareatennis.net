@@ -45,7 +45,8 @@
 
   async function loadSiteConfig() {
     try {
-      const response = await fetch("resources/site.json");
+      const siteRoot = document.body?.dataset.siteRoot || "";
+      const response = await fetch(`${siteRoot}resources/site.json`);
       if (!response.ok) throw new Error("site.json missing");
       const config = await response.json();
       window.BAT = { ...(window.BAT || {}), config };
